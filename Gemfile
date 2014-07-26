@@ -34,7 +34,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 
 group :development, :test do
-  #gem 'sqlite3'
+  gem 'sqlite3'
   gem 'rspec-rails', '~> 3.0.2'
   #gem 'guard-rspec', '2.5.0'
   #gem 'spork-rails', '4.0.0'
