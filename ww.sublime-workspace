@@ -1,0 +1,393 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sr",
+				"sorted"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/vad/rails/sample_app/app/models/micropost.rb",
+			"settings":
+			{
+				"buffer_size": 541,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/vad/rails/sample_app/Gemfile",
+			"settings":
+			{
+				"buffer_size": 1041,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Gemfile",
+			"settings":
+			{
+				"buffer_size": 1481,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"Snippet: ",
+				"Snippet: directory()"
+			]
+		],
+		"width": 530.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/vad/rails/sample_app/spec/models/user_spec.rb",
+		"/home/vad/rails/sample_app/app/models/user.rb",
+		"/home/vad/rails/sample_app/app/models/micropost.rb",
+		"/home/vad/rails/sample_app/app/models/relationship.rb",
+		"/home/vad/rails/sample_app/spec/requests/user_pages_spec.rb",
+		"/home/vad/rails/sample_app/spec/requests/authentication_pages_spec.rb",
+		"/home/vad/rails/sample_app/app/controllers/relationships_controller.rb",
+		"/home/vad/rails/sample_app/spec/controllers/relationships_controller_spec.rb",
+		"/home/vad/rails/sample_app/app/views/relationships/create.js.erb",
+		"/home/vad/rails/sample_app/app/views/relationships/destroy.js.erb",
+		"/home/vad/rails/sample_app/app/views/users/_unfollow.html.erb",
+		"/home/vad/rails/sample_app/app/views/users/_follow.html.erb",
+		"/home/vad/rails/sample_app/config/routes.rb",
+		"/home/vad/rails/sample_app/app/views/static_pages/home.html.erb",
+		"/home/vad/rails/sample_app/app/controllers/static_pages_controller.rb",
+		"/home/vad/rails/sample_app/app/controllers/users_controller.rb",
+		"/home/vad/rails/sample_app/app/views/users/show.html.erb",
+		"/home/vad/rails/sample_app/app/views/users/_user.html.erb",
+		"/home/vad/rails/sample_app/app/views/users/index.html.erb",
+		"/home/vad/rails/sample_app/app/helpers/sessions_helper.rb",
+		"/home/vad/rails/sample_app/app/views/users/show_follow.html.erb",
+		"/home/vad/rails/sample_app/app/views/users/edit.html.erb",
+		"/home/vad/rails/sample_app/spec/requests/static_pages_spec.rb",
+		"/home/vad/rails/sample_app/app/views/shared/_stats.html.erb",
+		"/home/vad/rails/sample_app/app/assets/stylesheets/custom.css.scss",
+		"/home/vad/rails/sample_app/app/views/users/_follow_form.html.erb",
+		"/home/vad/rails/sample_app/lib/tasks/sample_data.rake",
+		"/home/vad/rails/sample_app/app/views/shared/_feed_item.html.erb",
+		"/home/vad/rails/sample_app/spec/models/relationship_spec.rb",
+		"/home/vad/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/vad/rails/sample_app/db/migrate/20140719181500_create_relationships.rb",
+		"/home/vad/rails/sample_app/app/views/shared/_feed.html.erb",
+		"/home/vad/rails/sample_app/app/controllers/microposts_controller.rb",
+		"/home/vad/rails/sample_app/spec/requests/micropost_pages_spec.rb",
+		"/home/vad/rails/sample_app/app/helpers/microposts_helper.rb",
+		"/home/vad/rails/sample_app/app/views/shared/_micropost_form.html.erb",
+		"/home/vad/rails/sample_app/app/views/microposts/_micropost.html.erb",
+		"/home/vad/rails/sample_app/spec/models/micropost_spec.rb",
+		"/home/vad/rails/sample_app/app/views/shared/_error_messages.html.erb",
+		"/home/vad/rails/sample_app/app/views/shared/_user_info.html.erb",
+		"/home/vad/rails/sample_app/app/views/users/new.html.erb",
+		"/home/vad/rails/sample_app/app/controllers/sessions_controller.rb",
+		"/home/vad/rails/sample_app/app/controllers/application_controller.rb",
+		"/home/vad/rails/sample_app/app/assets/stylesheets/users.css.scss",
+		"/home/vad/rails/sample_app/spec/factories.rb",
+		"/home/vad/rails/sample_app/app/assets/stylesheets/static_pages.css.scss",
+		"/home/vad/rails/sample_app/db/migrate/20140423175808_create_microposts.rb",
+		"/home/vad/rails/sample_app/db/migrate/20140413182439_add_admin_to_users.rb",
+		"/home/vad/rails/sample_app/app/views/layouts/_header.html.erb",
+		"/home/vad/rails/sample_app/lib/tasks/cucumber.rake",
+		"/home/vad/rails/sample_app/Gemfile",
+		"/home/vad/rails/sample_app/spec/support/utilities.rb",
+		"/home/vad/rails/sample_app/spec/spec_helper.rb",
+		"/home/vad/rails/sample_app/app/views/sessions/new.html.erb",
+		"/home/vad/rails/sample_app/spec/helpers/application_helper_spec.rb",
+		"/home/vad/rails/sample_app/Guardfile",
+		"/home/vad/rails/sample_app/config.ru",
+		"/home/vad/rails/sample_app/Rakefile",
+		"/home/vad/rails/sample_app/.rspec",
+		"/home/vad/rails/sample_app/.secret",
+		"/home/vad/rails/sample_app/features/signing_in.feature",
+		"/home/vad/rails/sample_app/features/step_definitions/authentication_steps.rb",
+		"/home/vad/rails/sample_app/app/assets/javascripts/application.js",
+		"/home/vad/rails/sample_app/db/migrate/20140406172030_add_remember_token_to_users.rb",
+		"/home/vad/rails/sample_app/.bundle/config",
+		"/home/vad/rails/sample_app/spec/requests/authentications_spec.rb",
+		"/home/vad/rails/sample_app/app/views/layouts/application.html.erb",
+		"/home/vad/rails/sample_app/app/helpers/users_helper.rb",
+		"/home/vad/rails/sample_app/config/environments/production.rb",
+		"/home/vad/rails/sample_app/app/views/layouts/_footer.html.erb",
+		"/home/vad/rails/sample_app/config/environments/test.rb",
+		"/home/vad/rails/sample_app/app/helpers/application_helper.rb",
+		"/home/vad/rails/sample_app/db/migrate/20140107103817_add_password_digest_to_users.rb",
+		"/home/vad/rails/sample_app/db/migrate/20140107100832_add_index_to_users_email.rb",
+		"/home/vad/rails/sample_app/db/migrate/20131128101130_create_users.rb",
+		"/home/vad/rails/sample_app/app/views/static_pages/contact.html.erb",
+		"/home/vad/.config/sublime-text-2/Packages/RubyTest/Default (Linux).sublime-keymap",
+		"/home/vad/.config/sublime-text-2/Packages/RubyTest/Default.sublime-keymap",
+		"/home/vad/rails/sample_app/app/views/static_pages/about.html.erb",
+		"/home/vad/rails/sample_app/app/views/layouts/_shim.html.erb",
+		"/home/vad/rails/sample_app/app/assets/stylesheets/application.css",
+		"/home/vad/rails/sample_app/example_user.rb",
+		"/home/vad/rails/sample_app/config/application.rb",
+		"/home/vad/rails/sample_app/app/helpers/static_pages_helper.rb",
+		"/home/vad/rails/sample_app/Gemfile.lock",
+		"/home/vad/.config/sublime-text-2/Packages/RubyTest/RubyTest.sublime-settings",
+		"/home/vad/.config/sublime-text-2/Packages/User/RubyTest.sublime-settings",
+		"/home/vad/rails/sample_app/lib/assets/.keep",
+		"/home/vad/rails/sample_app/.gitignore",
+		"/home/vad/rails/sample_app/config/database.yml",
+		"/home/vad/rails/sample_app/log/development.log",
+		"/home/vad/rails/sample_app/log/test.log",
+		"/home/vad/rails/sample_app/log/.keep",
+		"/home/vad/rails/sample_app/app/views/static_pages/help.html.erb",
+		"/home/vad/rails/sample_app/app/views/layouts/foobar",
+		"/home/vad/rails/sample_app/README.md",
+		"/home/vad/rails/sample_app/config/initializers/secret_token.rb",
+		"/home/vad/rails/demo_app/app/models/user.rb",
+		"/home/vad/rails/demo_app/app/models/micropost.rb",
+		"/home/vad/Desktop/code/1.html",
+		"/home/vad/rails/demo_app/config/application.rb",
+		"/home/vad/rails/demo_app/config/environment.rb",
+		"/home/vad/rails/demo_app/config/database.yml",
+		"/home/vad/rails/demo_app/config.ru",
+		"/home/vad/Desktop/code/test1.rb",
+		"/home/vad/rails/first_app/Gemfile",
+		"/home/vad/.gemrc",
+		"/home/vad/Desktop/code/pig.rb",
+		"/home/vad/Desktop/code/book/tut_modules/gserver-logger.rb",
+		"/home/vad/rails/demo_app/Gemfile",
+		"/home/vad/rails/demo_app/.bundle/config",
+		"/home/vad/rails/demo_app/.gitignore",
+		"/home/vad/rails/first_app/README.md",
+		"/home/vad/rails/first_app/.git/COMMIT_EDITMSG",
+		"/home/vad/rails/first_app/app/controllers/application_controller.rb",
+		"/home/vad/rails/first_app/.gitignore",
+		"/home/vad/Desktop/code/book/tut_containers/word_freq/ugly_word_count.rb",
+		"/home/vad/Desktop/code/book/tut_containers/word_freq/wordfreq.rb",
+		"/home/vad/Desktop/code/book/tut_containers/word_freq/words_from_string.rb",
+		"/home/vad/Desktop/code/book/tut_classes/stock_stats/stock_stats.rb",
+		"/home/vad/Desktop/code/book/tut_classes/stock_stats/csv_reader.rb",
+		"/home/vad/Desktop/code/book/tut_classes/stock_stats/book_in_stock.rb",
+		"/home/vad/Desktop/ruby_code/test1.rb"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/home/vad/rails/sample_app",
+			"/home/vad/rails/sample_app/spec",
+			"/home/vad/rails/sample_app"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"where",
+			"micro",
+			"follo",
+			"content",
+			"feed",
+			"module",
+			"settings",
+			"valid_signin",
+			"Guardfile",
+			"cucu",
+			"shared",
+			"logo",
+			"App",
+			"ffi",
+			"gua"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			">"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/vad/rails/sample_app/app/models/micropost.rb",
+					"settings":
+					{
+						"buffer_size": 541,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								541,
+								541
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/vad/rails/sample_app/Gemfile",
+					"settings":
+					{
+						"buffer_size": 1041,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								102,
+								102
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 51.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Gemfile",
+					"settings":
+					{
+						"buffer_size": 1481,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								282,
+								282
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 112.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 243.0,
+	"status_bar_visible": true
+}
