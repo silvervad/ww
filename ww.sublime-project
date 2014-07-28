@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "/home/vad/rails/ww"
+		},
+		{
+			"path": "/home/vad/rails/sample_app"
 		}
 	]
 }
