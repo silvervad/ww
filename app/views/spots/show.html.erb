@@ -1,31 +1,30 @@
-<div class="fotorama">
-  	<div>
-		<p id="notice"><%= notice %></p>
+<div>
+	<p id="notice"><%= notice %></p>
 
-		<p>
-		  <strong>Name:</strong>
-		  <%= @spot.name %>
-		</p>
+	<p>
+	  <strong>Name:</strong>
+	  <%= @spot.name %>
+	</p>
 
-		<p>
-		  <strong>Latitude:</strong>
-		  <%= @spot.latitude %>
-		</p>
+	<p>
+	  <strong>Sport:</strong>
+	  <%= @spot.sport %>
+	</p>
 
-		<p>
-		  <strong>Longitude:</strong>
-		  <%= @spot.longitude %>
-		</p>
 
-		<p>
-		  <strong>Sport:</strong>
-		  <%= @spot.sport %>
-		</p>
-	</div>
-	<img src="http://s.fotorama.io/1.jpg">
-  <img src="http://s.fotorama.io/2.jpg">
-
+	<p>
+	  <strong>Seasons:</strong>
+	  <% 12.times do |t| %>
+	   	<%= get_months[t] %>
+	  	<%= @spot.seasons[t] %>
+	  <% end %>
+	</p>
 </div>
+
+
+<%= link_to 'Edit', edit_spot_path(@spot) %> |
+<%= link_to 'Back', spots_path %>
+
 <!-- Begin Google Maps Script -->
  <script>
 function initialize() {
@@ -40,7 +39,7 @@ function initialize() {
   var marker = new google.maps.Marker({
       position: myLatlng,
       map: map,
-      title: 'Hello World!'
+      title: '<%= @spot.name %>'
   });
 }
 
@@ -53,10 +52,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <div id="map-canvas"></div>
 
 
-<%= link_to 'Edit', edit_spot_path(@spot) %> |
-<%= link_to 'Back', spots_path %>
-
-
-
-
-<!-- 2. Add images to <div class="fotorama"></div>. -->
+<div id="spot-images">
+	<% @spot_images.each do |img| %>
+		<%= image_tag "#{@spot.id}/#{img}", size: "400x300" %>
+	<% end %>
+</div>

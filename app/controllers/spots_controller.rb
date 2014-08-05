@@ -10,6 +10,12 @@ class SpotsController < ApplicationController
   # GET /spots/1
   # GET /spots/1.json
   def show
+    begin
+      @spot_images=Dir.entries("#{Rails.root}/app/assets/images/#{@spot.id}").select {|f| !File.directory? f}
+    rescue
+      @spot_images=[]
+    end
+
   end
 
   # GET /spots/new
@@ -69,6 +75,6 @@ class SpotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def spot_params
-      params.require(:spot).permit(:name, :latitude, :longitude, :sport)
+      params.require(:spot).permit(:name, :latitude, :longitude, :sport, :seasons)
     end
 end
