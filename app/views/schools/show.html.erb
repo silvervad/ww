@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Spot:</strong>
+  <%= @school.spot_id %>
+</p>
+
+<p>
+  <strong>Sports:</strong>
+  <%= @school.sports %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @school.name %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @school.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @school.longitude %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @school.link %>
+</p>
+
+<p>
+  <strong>Affiliation:</strong>
+  <%= @school.affiliation %>
+</p>
+
+<%= link_to 'Edit', edit_school_path(@school) %> |
+<%= link_to 'Back', schools_path %>
