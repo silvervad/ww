@@ -1,5 +1,6 @@
 class Spot < ActiveRecord::Base
 	after_initialize :set_seasons
+	has_many :schools
 
 	serialize :seasons
 
