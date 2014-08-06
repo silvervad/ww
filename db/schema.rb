@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140802093532) do
+ActiveRecord::Schema.define(version: 20140806184943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "schools", force: true do |t|
+    t.integer  "spot_id"
+    t.integer  "sports"
+    t.string   "name"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.string   "link"
+    t.integer  "affiliation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "schools", ["name"], name: "index_schools_on_name", using: :btree
+  add_index "schools", ["spot_id"], name: "index_schools_on_spot_id", using: :btree
 
   create_table "spots", force: true do |t|
     t.string   "name"
@@ -25,5 +40,7 @@ ActiveRecord::Schema.define(version: 20140802093532) do
     t.integer  "sport"
     t.string   "seasons"
   end
+
+  add_index "spots", ["name"], name: "index_spots_on_name", using: :btree
 
 end
