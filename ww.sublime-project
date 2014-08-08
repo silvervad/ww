@@ -6,6 +6,9 @@
 		},
 		{
 			"path": "/home/vad/rails/sample_app"
+		},
+		{
+			"path": "/home/vad/rails/depot"
 		}
 	]
 }

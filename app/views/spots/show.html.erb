@@ -57,3 +57,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		<%= image_tag "#{@spot.id}/#{img}", size: "400x300" %>
 	<% end %>
 </div>
+
+<div id="spot-photos">
+	<%= @spot.photos.to_a %>
+</div>
