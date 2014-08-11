@@ -1,7 +1,7 @@
 class Spot < ActiveRecord::Base
 	after_initialize :set_seasons
 	has_many :schools
-	has_many :photos, dependent: :destroy
+	has_many :photos, as: :imageable, dependent: :destroy
     accepts_nested_attributes_for :photos
 
 	serialize :seasons
