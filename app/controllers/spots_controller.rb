@@ -10,21 +10,18 @@ class SpotsController < ApplicationController
   # GET /spots/1
   # GET /spots/1.json
   def show
-    begin
-      @spot_images=Dir.entries("#{Rails.root}/app/assets/images/#{@spot.id}").select {|f| !File.directory? f}
-    rescue
-      @spot_images=[]
-    end
-
+    @photos = @spot.photos.all
   end
 
   # GET /spots/new
   def new
     @spot = Spot.new
+    @photos = @spot.photos.build
   end
 
   # GET /spots/1/edit
   def edit
+    @photos = @spot.photos.all
   end
 
   # POST /spots
@@ -34,6 +31,9 @@ class SpotsController < ApplicationController
 
     respond_to do |format|
       if @spot.save
+        params[:photos]['image'].each do |a|
+          @photo = @spot.photos.create!(:image => a, :spot_id => @spot.id)
+        end
         format.html { redirect_to @spot, notice: 'Spot was successfully created.' }
         format.json { render :show, status: :created, location: @spot }
       else
@@ -48,6 +48,11 @@ class SpotsController < ApplicationController
   def update
     respond_to do |format|
       if @spot.update(spot_params)
+        if params[:photos]
+          params[:photos]['image'].each do |a|
+            @photo = @spot.photos.create!(:image => a, :spot_id => @spot.id)
+          end
+        end
         format.html { redirect_to @spot, notice: 'Spot was successfully updated.' }
         format.json { render :show, status: :ok, location: @spot }
       else
@@ -75,6 +80,6 @@ class SpotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def spot_params
-      params.require(:spot).permit(:name, :latitude, :longitude, :sport, :seasons)
+      params.require(:spot).permit(:name, :latitude, :longitude, :sport, :seasons, photos_attributes: [:id, :spot_id, :image])
     end
 end

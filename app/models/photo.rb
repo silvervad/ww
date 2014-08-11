@@ -1,3 +1,6 @@
 class Photo < ActiveRecord::Base
-  belongs_to :imageable, polymorphic: true
+	belongs_to :spot
+	
+	mount_uploader :image, ImageUploader
+
 end
