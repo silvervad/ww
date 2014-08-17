@@ -12,26 +12,51 @@
 	"buffers":
 	[
 		{
-			"file": "/home/vad/rails/sample_app/app/models/micropost.rb",
+			"file": "app/controllers/spots_controller.rb",
 			"settings":
 			{
-				"buffer_size": 541,
+				"buffer_size": 2294,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/vad/rails/sample_app/Gemfile",
+			"file": "app/views/spots/_update_form.html.erb",
 			"settings":
 			{
-				"buffer_size": 1041,
+				"buffer_size": 1186,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Gemfile",
+			"file": "app/views/layouts/_photos.html.erb",
 			"settings":
 			{
-				"buffer_size": 1481,
+				"buffer_size": 197,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/layouts/application.html.erb",
+			"settings":
+			{
+				"buffer_size": 680,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/schools/_school_short.html.erb",
+			"settings":
+			{
+				"buffer_size": 88,
+				"line_ending": "Unix",
+				"name": "<li>"
+			}
+		},
+		{
+			"file": "app/views/spots/show.html.erb",
+			"settings":
+			{
+				"buffer_size": 1248,
 				"line_ending": "Unix"
 			}
 		}
@@ -64,9 +89,75 @@
 	},
 	"file_history":
 	[
+		"/home/vad/rails/ww/app/views/spots/_form.html.erb",
+		"/home/vad/rails/ww/app/views/spots/show.html.erb",
+		"/home/vad/rails/ww/db/migrate/20140811190055_add_poly_to_photos.rb",
+		"/home/vad/rails/ww/app/models/photo.rb",
+		"/home/vad/rails/ww/app/models/spot.rb",
+		"/home/vad/rails/ww/app/models/school.rb",
+		"/home/vad/rails/ww/app/helpers/photos_helper.rb",
+		"/home/vad/rails/ww/app/views/spots/edit.html.erb",
+		"/home/vad/rails/ww/app/views/spots/_update_form.html.erb",
+		"/home/vad/rails/ww/app/views/spots/new.html.erb",
+		"/home/vad/rails/ww/app/uploaders/image_uploader.rb",
+		"/home/vad/rails/ww/Gemfile",
+		"/home/vad/rails/sample_app/app/controllers/users_controller.rb",
+		"/home/vad/rails/ww/db/migrate/20140808154014_create_photos.rb",
+		"/home/vad/rails/ww/config/routes.rb",
+		"/home/vad/rails/ww/app/controllers/spots_controller.rb",
+		"/home/vad/rails/ww/app/controllers/schools_controller.rb",
+		"/home/vad/rails/ww/db/schema.rb",
+		"/home/vad/rails/ww/db/seeds.rb",
+		"/home/vad/rails/depot/db/seeds.rb",
+		"/home/vad/rails/depot/app/views/products/index.html.erb",
+		"/home/vad/rails/depot/app/assets/stylesheets/products.css.scss",
+		"/home/vad/rails/depot/.gitignore",
+		"/home/vad/rails/ww/.gitignore",
+		"/home/vad/rails/depot/app/views/products/_form.html.erb",
+		"/home/vad/rails/depot/db/migrate/seeds.rb",
+		"/home/vad/rails/depot/app/views/layouts/application.html.erb",
+		"/home/vad/rails/depot/db/migrate/20140807151909_create_products.rb",
+		"/home/vad/rails/ww/.git/COMMIT_EDITMSG",
+		"/home/vad/rails/ww/db/migrate/indexes.rb",
+		"/home/vad/rails/ww/app/helpers/spots_helper.rb",
+		"/home/vad/rails/ww/db/migrate/20140806184654_create_schools.rb",
+		"/home/vad/rails/ww/spec/models/school_spec.rb",
+		"/home/vad/rails/ww/db/migrate/20140806182232_add_indexes_spots_and_schools.rb",
+		"/home/vad/rails/ww/db/migrate/20140806182813_add_indexes_to_spots_schools.rb",
+		"/home/vad/rails/ww/db/migrate/20140806182021_create_schools.rb",
+		"/home/vad/rails/ww/app/helpers/application_helper.rb",
+		"/home/vad/rails/ww/app/views/layouts/_gmaps.html.erb",
+		"/home/vad/rails/ww/app/views/layouts/application.html.erb",
+		"/home/vad/rails/ww/app/views/layouts/_header.html.erb",
+		"/home/vad/rails/ww/db/migrate/20140726155840_add_sport_type_to_spot.rb",
+		"/home/vad/rails/ww/db/migrate/20140802093532_add_seasons_to_spots.rb",
+		"/home/vad/rails/ww/config/database.yml",
+		"/home/vad/rails/sample_app/config/database.yml",
+		"/home/vad/rails/sample_app/Gemfile",
+		"/home/vad/rails/ww/config/environment.rb",
+		"/home/vad/rails/sample_app/.gitignore",
+		"/home/vad/rails/ww/db/migrate/20140802093225_add_seasons_to_spot.rb",
+		"/home/vad/rails/ww/app/views/spots/index.html.erb",
+		"/home/vad/rails/ww/config/environments/development.rb",
+		"/home/vad/rails/ww/config/environments/test.rb",
+		"/home/vad/rails/ww/config/environments/production.rb",
+		"/home/vad/rails/ww/app/assets/javascripts/application.js",
+		"/home/vad/rails/ww/app/assets/stylesheets/application.css",
+		"/home/vad/rails/sample_app/app/views/layouts/application.html.erb",
+		"/home/vad/rails/ww/db/migrate/20140726130823_create_spots.rb",
+		"/home/vad/rails/ww/public/assets/application-8300e97aaa7c4d0192301b7218164e7a.js",
+		"/home/vad/rails/ww/app/assets/images/.keep",
+		"/home/vad/rails/ww/app/assets/stylesheets/spots.css.scss",
+		"/home/vad/rails/ww/app/views/layouts/_footer.html.erb",
+		"/home/vad/rails/ww/spec/support/utilities.rb",
+		"/home/vad/rails/sample_app/spec/support/utilities.rb",
+		"/home/vad/rails/ww/app/views/layouts/__header.html.erb",
+		"/home/vad/rails/sample_app/app/models/micropost.rb",
+		"/home/vad/rails/ww/db/development.sqlite3",
+		"/home/vad/rails/ww/README.md",
+		"/home/vad/.gitconfig",
 		"/home/vad/rails/sample_app/spec/models/user_spec.rb",
 		"/home/vad/rails/sample_app/app/models/user.rb",
-		"/home/vad/rails/sample_app/app/models/micropost.rb",
 		"/home/vad/rails/sample_app/app/models/relationship.rb",
 		"/home/vad/rails/sample_app/spec/requests/user_pages_spec.rb",
 		"/home/vad/rails/sample_app/spec/requests/authentication_pages_spec.rb",
@@ -79,7 +170,6 @@
 		"/home/vad/rails/sample_app/config/routes.rb",
 		"/home/vad/rails/sample_app/app/views/static_pages/home.html.erb",
 		"/home/vad/rails/sample_app/app/controllers/static_pages_controller.rb",
-		"/home/vad/rails/sample_app/app/controllers/users_controller.rb",
 		"/home/vad/rails/sample_app/app/views/users/show.html.erb",
 		"/home/vad/rails/sample_app/app/views/users/_user.html.erb",
 		"/home/vad/rails/sample_app/app/views/users/index.html.erb",
@@ -114,8 +204,6 @@
 		"/home/vad/rails/sample_app/db/migrate/20140413182439_add_admin_to_users.rb",
 		"/home/vad/rails/sample_app/app/views/layouts/_header.html.erb",
 		"/home/vad/rails/sample_app/lib/tasks/cucumber.rake",
-		"/home/vad/rails/sample_app/Gemfile",
-		"/home/vad/rails/sample_app/spec/support/utilities.rb",
 		"/home/vad/rails/sample_app/spec/spec_helper.rb",
 		"/home/vad/rails/sample_app/app/views/sessions/new.html.erb",
 		"/home/vad/rails/sample_app/spec/helpers/application_helper_spec.rb",
@@ -128,65 +216,7 @@
 		"/home/vad/rails/sample_app/features/step_definitions/authentication_steps.rb",
 		"/home/vad/rails/sample_app/app/assets/javascripts/application.js",
 		"/home/vad/rails/sample_app/db/migrate/20140406172030_add_remember_token_to_users.rb",
-		"/home/vad/rails/sample_app/.bundle/config",
-		"/home/vad/rails/sample_app/spec/requests/authentications_spec.rb",
-		"/home/vad/rails/sample_app/app/views/layouts/application.html.erb",
-		"/home/vad/rails/sample_app/app/helpers/users_helper.rb",
-		"/home/vad/rails/sample_app/config/environments/production.rb",
-		"/home/vad/rails/sample_app/app/views/layouts/_footer.html.erb",
-		"/home/vad/rails/sample_app/config/environments/test.rb",
-		"/home/vad/rails/sample_app/app/helpers/application_helper.rb",
-		"/home/vad/rails/sample_app/db/migrate/20140107103817_add_password_digest_to_users.rb",
-		"/home/vad/rails/sample_app/db/migrate/20140107100832_add_index_to_users_email.rb",
-		"/home/vad/rails/sample_app/db/migrate/20131128101130_create_users.rb",
-		"/home/vad/rails/sample_app/app/views/static_pages/contact.html.erb",
-		"/home/vad/.config/sublime-text-2/Packages/RubyTest/Default (Linux).sublime-keymap",
-		"/home/vad/.config/sublime-text-2/Packages/RubyTest/Default.sublime-keymap",
-		"/home/vad/rails/sample_app/app/views/static_pages/about.html.erb",
-		"/home/vad/rails/sample_app/app/views/layouts/_shim.html.erb",
-		"/home/vad/rails/sample_app/app/assets/stylesheets/application.css",
-		"/home/vad/rails/sample_app/example_user.rb",
-		"/home/vad/rails/sample_app/config/application.rb",
-		"/home/vad/rails/sample_app/app/helpers/static_pages_helper.rb",
-		"/home/vad/rails/sample_app/Gemfile.lock",
-		"/home/vad/.config/sublime-text-2/Packages/RubyTest/RubyTest.sublime-settings",
-		"/home/vad/.config/sublime-text-2/Packages/User/RubyTest.sublime-settings",
-		"/home/vad/rails/sample_app/lib/assets/.keep",
-		"/home/vad/rails/sample_app/.gitignore",
-		"/home/vad/rails/sample_app/config/database.yml",
-		"/home/vad/rails/sample_app/log/development.log",
-		"/home/vad/rails/sample_app/log/test.log",
-		"/home/vad/rails/sample_app/log/.keep",
-		"/home/vad/rails/sample_app/app/views/static_pages/help.html.erb",
-		"/home/vad/rails/sample_app/app/views/layouts/foobar",
-		"/home/vad/rails/sample_app/README.md",
-		"/home/vad/rails/sample_app/config/initializers/secret_token.rb",
-		"/home/vad/rails/demo_app/app/models/user.rb",
-		"/home/vad/rails/demo_app/app/models/micropost.rb",
-		"/home/vad/Desktop/code/1.html",
-		"/home/vad/rails/demo_app/config/application.rb",
-		"/home/vad/rails/demo_app/config/environment.rb",
-		"/home/vad/rails/demo_app/config/database.yml",
-		"/home/vad/rails/demo_app/config.ru",
-		"/home/vad/Desktop/code/test1.rb",
-		"/home/vad/rails/first_app/Gemfile",
-		"/home/vad/.gemrc",
-		"/home/vad/Desktop/code/pig.rb",
-		"/home/vad/Desktop/code/book/tut_modules/gserver-logger.rb",
-		"/home/vad/rails/demo_app/Gemfile",
-		"/home/vad/rails/demo_app/.bundle/config",
-		"/home/vad/rails/demo_app/.gitignore",
-		"/home/vad/rails/first_app/README.md",
-		"/home/vad/rails/first_app/.git/COMMIT_EDITMSG",
-		"/home/vad/rails/first_app/app/controllers/application_controller.rb",
-		"/home/vad/rails/first_app/.gitignore",
-		"/home/vad/Desktop/code/book/tut_containers/word_freq/ugly_word_count.rb",
-		"/home/vad/Desktop/code/book/tut_containers/word_freq/wordfreq.rb",
-		"/home/vad/Desktop/code/book/tut_containers/word_freq/words_from_string.rb",
-		"/home/vad/Desktop/code/book/tut_classes/stock_stats/stock_stats.rb",
-		"/home/vad/Desktop/code/book/tut_classes/stock_stats/csv_reader.rb",
-		"/home/vad/Desktop/code/book/tut_classes/stock_stats/book_in_stock.rb",
-		"/home/vad/Desktop/ruby_code/test1.rb"
+		"/home/vad/rails/sample_app/.bundle/config"
 	],
 	"find":
 	{
@@ -197,6 +227,9 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"/home/vad/rails/ww",
+			"/home/vad/rails/sample_app",
+			"/home/vad/rails/ww",
 			"/home/vad/rails/sample_app",
 			"/home/vad/rails/sample_app/spec",
 			"/home/vad/rails/sample_app"
@@ -207,6 +240,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"uploader",
+			"#{",
+			"Jan",
+			"fotorama",
+			"sqli",
+			"sample",
+			"require_tree",
+			"data-turbolinks-track",
+			"jquery",
+			"jquery.js",
+			"= require",
+			"bdy",
 			"where",
 			"micro",
 			"follo",
@@ -229,6 +274,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"ww",
 			">"
 		],
 		"reverse": false,
@@ -240,28 +286,110 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/home/vad/rails/sample_app/app/models/micropost.rb",
+					"file": "app/controllers/spots_controller.rb",
 					"settings":
 					{
-						"buffer_size": 541,
+						"buffer_size": 2294,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								541,
-								541
+								303,
+								303
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 153.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/views/spots/_update_form.html.erb",
+					"settings":
+					{
+						"buffer_size": 1186,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1186,
+								1186
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 408.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/views/layouts/_photos.html.erb",
+					"settings":
+					{
+						"buffer_size": 197,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6,
+								6
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/views/layouts/application.html.erb",
+					"settings":
+					{
+						"buffer_size": 680,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -272,52 +400,51 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "/home/vad/rails/sample_app/Gemfile",
+					"buffer": 4,
+					"file": "app/views/schools/_school_short.html.erb",
 					"settings":
 					{
-						"buffer_size": 1041,
+						"buffer_size": 88,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								102,
-								102
+								71,
+								71
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"auto_name": "<li>",
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 51.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "Gemfile",
+					"buffer": 5,
+					"file": "app/views/spots/show.html.erb",
 					"settings":
 					{
-						"buffer_size": 1481,
+						"buffer_size": 1248,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								282,
-								282
+								435,
+								435
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -365,7 +492,7 @@
 	},
 	"replace":
 	{
-		"height": 0.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -388,6 +515,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 243.0,
+	"side_bar_width": 295.0,
 	"status_bar_visible": true
 }

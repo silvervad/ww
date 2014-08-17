@@ -19,6 +19,13 @@
 	  	<%= @spot.seasons[t] %>
 	  <% end %>
 	</p>
+
+	<% if @spot.schools.any? %>
+      <h3>Schools (<%= @spot.schools.count %>)</h3>
+      <ul class="schools">
+        <%= render partial: "schools/school_short", collection: @schools %>
+      </ul>
+    <% end %>
 </div>
 
 

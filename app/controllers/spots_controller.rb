@@ -11,6 +11,7 @@ class SpotsController < ApplicationController
   # GET /spots/1.json
   def show
     @photos = @spot.photos.all
+    @schools = @spot.schools.all
   end
 
   # GET /spots/new
