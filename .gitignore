@@ -15,6 +15,9 @@
 /log/*.log
 /tmp
 
+# Ignore uploaded images
+/public/uploads/photo/image
+
 # Ignore other unneeded files.
 database.yml
 doc/
