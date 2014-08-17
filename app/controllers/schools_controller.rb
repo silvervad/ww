@@ -1,6 +1,7 @@
 class SchoolsController < ApplicationController
   before_action :set_school, only: [:show, :edit, :update, :destroy]
 
+
   # GET /schools
   # GET /schools.json
   def index
@@ -10,6 +11,7 @@ class SchoolsController < ApplicationController
   # GET /schools/1
   # GET /schools/1.json
   def show
+    @photos = @school.photos.all
   end
 
   # GET /schools/new
@@ -28,6 +30,9 @@ class SchoolsController < ApplicationController
 
     respond_to do |format|
       if @school.save
+        params[:photos]['image'].each do |a|
+          @photo = @school.photos.create!(:image => a, :imageable_id => @school.id)
+        end
         format.html { redirect_to @school, notice: 'School was successfully created.' }
         format.json { render :show, status: :created, location: @school }
       else
@@ -42,6 +47,11 @@ class SchoolsController < ApplicationController
   def update
     respond_to do |format|
       if @school.update(school_params)
+        if params[:photos]
+          params[:photos]['image'].each do |a|
+            @photo = @school.photos.create!(:image => a, :imageable_id => @school.id)
+          end
+        end
         format.html { redirect_to @school, notice: 'School was successfully updated.' }
         format.json { render :show, status: :ok, location: @school }
       else

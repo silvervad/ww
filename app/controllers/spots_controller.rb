@@ -33,7 +33,7 @@ class SpotsController < ApplicationController
     respond_to do |format|
       if @spot.save
         params[:photos]['image'].each do |a|
-          @photo = @spot.photos.create!(:image => a, :spot_id => @spot.id)
+          @photo = @spot.photos.create!(:image => a, :imageable_id => @spot.id)
         end
         format.html { redirect_to @spot, notice: 'Spot was successfully created.' }
         format.json { render :show, status: :created, location: @spot }
@@ -51,7 +51,7 @@ class SpotsController < ApplicationController
       if @spot.update(spot_params)
         if params[:photos]
           params[:photos]['image'].each do |a|
-            @photo = @spot.photos.create!(:image => a, :spot_id => @spot.id)
+            @photo = @spot.photos.create!(:image => a, :imageable_id => @spot.id)
           end
         end
         format.html { redirect_to @spot, notice: 'Spot was successfully updated.' }
@@ -81,6 +81,6 @@ class SpotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def spot_params
-      params.require(:spot).permit(:name, :latitude, :longitude, :sport, :seasons, photos_attributes: [:id, :spot_id, :image])
+      params.require(:spot).permit(:name, :latitude, :longitude, :sport, :seasons)
     end
 end

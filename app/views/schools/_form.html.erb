@@ -39,6 +39,9 @@
     <%= f.label :affiliation %><br>
     <%= f.number_field :affiliation %>
   </div>
+
+  <%= render partial: "layouts/photos", locals: {f: f} %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
