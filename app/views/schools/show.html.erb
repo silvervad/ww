@@ -35,11 +35,13 @@
   <%= @school.affiliation %>
 </p>
 
+<%= link_to 'Edit', edit_school_path(@school) %> |
+<%= link_to 'Back', schools_path %>
+
 <div id="school-images">
   <% @photos.each do |img| %>
     <%= image_tag img.image_url, size: "400x300" %>
   <% end %>
 </div>
 
-<%= link_to 'Edit', edit_school_path(@school) %> |
-<%= link_to 'Back', schools_path %>
+
