@@ -1,10 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "Spots", :type => :request do
-  describe "GET /spots" do
-    it "works! (now write some real specs)" do
-      get spots_path
-      expect(response.status).to be(200)
+describe "Spots" do
+
+  describe "Index page" do
+
+    it "should have the title 'Spots'" do
+      visit '/spots'
+      expect(page).to have_title("Wind & Waves | Spots")
     end
   end
 end

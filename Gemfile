@@ -37,7 +37,8 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '~> 3.0.2'
-  #gem 'guard-rspec', '2.5.0'
+  gem 'guard-rspec', '~> 4.3.1'
+  gem 'spring-commands-rspec', '~> 1.0.2'
   #gem 'spork-rails', '4.0.0'
   #gem 'guard-spork', '1.5.0'
 
