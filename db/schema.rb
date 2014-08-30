@@ -43,14 +43,14 @@ ActiveRecord::Schema.define(version: 20140830103411) do
     t.string "name"
   end
 
-  create_table "spot_sports", force: true do |t|
+  create_table "sports_spots", force: true do |t|
     t.integer "spot_id"
     t.integer "sport_id"
   end
 
-  add_index "spot_sports", ["sport_id"], name: "index_spot_sports_on_sport_id", using: :btree
-  add_index "spot_sports", ["spot_id", "sport_id"], name: "index_spot_sports_on_spot_id_and_sport_id", unique: true, using: :btree
-  add_index "spot_sports", ["spot_id"], name: "index_spot_sports_on_spot_id", using: :btree
+  add_index "sports_spots", ["sport_id"], name: "index_sports_spots_on_sport_id", using: :btree
+  add_index "sports_spots", ["spot_id", "sport_id"], name: "index_sports_spots_on_spot_id_and_sport_id", unique: true, using: :btree
+  add_index "sports_spots", ["spot_id"], name: "index_sports_spots_on_spot_id", using: :btree
 
   create_table "spots", force: true do |t|
     t.string   "name"

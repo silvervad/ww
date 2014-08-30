@@ -1,4 +1,3 @@
 class Sport < ActiveRecord::Base
-	has_many :spot_sports
-	has_many :spots, through: :spot_sports
+	has_and_belongs_to_many :spots
 end
