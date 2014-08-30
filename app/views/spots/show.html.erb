@@ -7,8 +7,10 @@
 	</p>
 
 	<p>
-	  <strong>Sport:</strong>
-	  <%= @spot.sport %>
+	  <strong>Sports:</strong>
+	  <ul class="list-inline">
+	  	<%= render partial: "layouts/sport", collection: @spot.sports  %>
+	  </ul>
 	</p>
 
 

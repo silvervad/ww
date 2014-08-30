@@ -22,3 +22,8 @@ Spot.create!(name: 'Marsa Alam - Blue Lagoon', latitude: 24.910606, longitude: 3
 School.delete_all
 School.create!(spot_id: 1, sports: 1, name: 'Tornado Surf', latitude: 26.795834, longitude: 33.941896,
 	link: 'http://www.tornadosurf.com', affiliation: 1)
+
+Sport.delete_all
+Sport.create!(name: "Surfing")
+Sport.create!(name: "Windsurfing")
+Sport.create!(name: "Kitesurfing")
