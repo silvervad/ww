@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140817154540) do
+ActiveRecord::Schema.define(version: 20140829184044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20140817154540) do
     t.integer  "spot_id"
     t.integer  "sports"
     t.string   "name"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
+    t.decimal  "latitude",    precision: 10, scale: 6
+    t.decimal  "longitude",   precision: 10, scale: 6
     t.string   "link"
     t.integer  "affiliation"
     t.datetime "created_at"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 20140817154540) do
 
   create_table "spots", force: true do |t|
     t.string   "name"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
+    t.decimal  "latitude",   precision: 10, scale: 6
+    t.decimal  "longitude",  precision: 10, scale: 6
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sport"

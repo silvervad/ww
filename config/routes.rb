@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   
-  root  'static_pages#home'
-  match '/help',    to: 'static_pages#help',    via: 'get'
-  get 'static_pages/home'
+  get 'users/new'
 
-  get 'static_pages/help'
+  root  'static_pages#home'
+  
+  match '/signup',  to: 'users#new',            via: 'get'
 
 
   resources :schools

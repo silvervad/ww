@@ -1,12 +1,14 @@
 require 'rails_helper'
 
 describe "Spots" do
+  subject { page }
 
-  describe "Index page" do
+  describe "index page" do
+  	
+  	before { visit spots_path}
 
-    it "should have the title 'Spots'" do
-      visit '/spots'
-      expect(page).to have_title("Wind & Waves | Spots")
-    end
+	it { should have_selector('h1', text: 'spots') }
+	it { should have_title(full_title('Spots')) }
+  
   end
 end

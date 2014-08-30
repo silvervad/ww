@@ -61,6 +61,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 <div id="spot-images">
 	<% @photos.each do |img| %>
-		<%= image_tag img.image_url, size: "400x300" %>
+		<%= image_tag img.image_url, size: "400x300", class: "img-rounded"%>
 	<% end %>
 </div>
