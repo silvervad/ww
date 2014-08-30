@@ -23,10 +23,12 @@
     <%= f.label :longitude %><br>
     <%= f.text_field :longitude %>
   </div>
-  <div class="field">
-    <%= f.label :sports %><br>
-    <%= f.select (:sports) %>
-  </div>
+  <% for sport in Sport.all %>
+    <div class="field">
+        <%= check_box_tag "spot[sport_ids][]", sport.id, @spot.sports.include?(sport) %>
+        <%= sport.name %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :seasons %><br>
     <%= f.text_field :seasons %>

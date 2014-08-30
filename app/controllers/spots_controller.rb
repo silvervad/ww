@@ -35,7 +35,7 @@ class SpotsController < ApplicationController
         params[:photos]['image'].each do |a|
           @photo = @spot.photos.create!(:image => a, :imageable_id => @spot.id)
         end
-        format.html { redirect_to @spot, notice: 'Spot was successfully created.' }
+        format.html { redirect_to @spot, notice: "Spot was successfully created." }
         format.json { render :show, status: :created, location: @spot }
       else
         format.html { render :new }
@@ -47,6 +47,7 @@ class SpotsController < ApplicationController
   # PATCH/PUT /spots/1
   # PATCH/PUT /spots/1.json
   def update
+    params[:spot][:sport_ids] ||= [] 
     respond_to do |format|
       if @spot.update(spot_params)
         if params[:photos]
@@ -54,6 +55,7 @@ class SpotsController < ApplicationController
             @photo = @spot.photos.create!(:image => a, :imageable_id => @spot.id)
           end
         end
+
         format.html { redirect_to @spot, notice: 'Spot was successfully updated.' }
         format.json { render :show, status: :ok, location: @spot }
       else
@@ -81,6 +83,7 @@ class SpotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def spot_params
-      params.require(:spot).permit(:name, :latitude, :longitude, :sport, :seasons)
+      params.require(:spot).permit(:name, :latitude, :longitude, :seasons, {:sport_ids => []},
+        photos_attributes: [:id, :image, :imageable_id])
     end
 end
