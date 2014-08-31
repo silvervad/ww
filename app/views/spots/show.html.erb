@@ -15,8 +15,8 @@
 	<p>
 	  <strong>Seasons:</strong>
 	  <% 12.times do |t| %>
-	   	<%= get_months[t] %>
-	  	<%= @spot.seasons[t] %>
+	   	<%= @spot.seasons.find(1).get_months[t] if @spot.seasons.any?%>
+	  	<%= @spot.seasons.find(1).get_seasons[t] if @spot.seasons.any?%>
 	  <% end %>
 	</p>
 
