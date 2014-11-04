@@ -32,8 +32,10 @@ class SpotsController < ApplicationController
 
     respond_to do |format|
       if @spot.save
-        params[:photos]['image'].each do |a|
-          @photo = @spot.photos.create!(:image => a, :imageable_id => @spot.id)
+        if params[:photos]
+          params[:photos]['image'].each do |a|
+            @photo = @spot.photos.create!(:image => a, :imageable_id => @spot.id)
+          end
         end
         format.html { redirect_to @spot, notice: "Spot was successfully created." }
         format.json { render :show, status: :created, location: @spot }

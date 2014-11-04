@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140831175247) do
+ActiveRecord::Schema.define(version: 20140908152206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20140831175247) do
   end
 
   add_index "seasons", ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], name: "index_seasons_on_months", using: :btree
+  add_index "seasons", ["sport_id"], name: "index_seasons_on_sport_id", using: :btree
+  add_index "seasons", ["spot_id"], name: "index_seasons_on_spot_id", using: :btree
 
   create_table "sports", force: true do |t|
     t.string "name"

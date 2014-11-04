@@ -18,6 +18,8 @@
 	   	<%= @spot.seasons.find(1).get_months[t] if @spot.seasons.any?%>
 	  	<%= @spot.seasons.find(1).get_seasons[t] if @spot.seasons.any?%>
 	  <% end %>
+
+	  <div id="chartContainer">FusionCharts XT will load here!</div>
 	</p>
 
 	<% if @spot.schools.any? %>
