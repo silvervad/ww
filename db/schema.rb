@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140908152206) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "photos", force: true do |t|
     t.string   "image"
     t.datetime "created_at"
@@ -36,31 +33,31 @@ ActiveRecord::Schema.define(version: 20140908152206) do
     t.datetime "updated_at"
   end
 
-  add_index "schools", ["name"], name: "index_schools_on_name", using: :btree
-  add_index "schools", ["spot_id"], name: "index_schools_on_spot_id", using: :btree
+  add_index "schools", ["name"], name: "index_schools_on_name"
+  add_index "schools", ["spot_id"], name: "index_schools_on_spot_id"
 
   create_table "seasons", force: true do |t|
-    t.integer  "jan",        limit: 2
-    t.integer  "feb",        limit: 2
-    t.integer  "mar",        limit: 2
-    t.integer  "apr",        limit: 2
-    t.integer  "may",        limit: 2
-    t.integer  "jun",        limit: 2
-    t.integer  "jul",        limit: 2
-    t.integer  "aug",        limit: 2
-    t.integer  "sep",        limit: 2
-    t.integer  "oct",        limit: 2
-    t.integer  "nov",        limit: 2
-    t.integer  "dec",        limit: 2
+    t.integer  "jan",        limit: 1
+    t.integer  "feb",        limit: 1
+    t.integer  "mar",        limit: 1
+    t.integer  "apr",        limit: 1
+    t.integer  "may",        limit: 1
+    t.integer  "jun",        limit: 1
+    t.integer  "jul",        limit: 1
+    t.integer  "aug",        limit: 1
+    t.integer  "sep",        limit: 1
+    t.integer  "oct",        limit: 1
+    t.integer  "nov",        limit: 1
+    t.integer  "dec",        limit: 1
     t.integer  "sport_id"
     t.integer  "spot_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "seasons", ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], name: "index_seasons_on_months", using: :btree
-  add_index "seasons", ["sport_id"], name: "index_seasons_on_sport_id", using: :btree
-  add_index "seasons", ["spot_id"], name: "index_seasons_on_spot_id", using: :btree
+  add_index "seasons", ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], name: "index_seasons_on_months"
+  add_index "seasons", ["sport_id"], name: "index_seasons_on_sport_id"
+  add_index "seasons", ["spot_id"], name: "index_seasons_on_spot_id"
 
   create_table "sports", force: true do |t|
     t.string "name"
@@ -74,15 +71,15 @@ ActiveRecord::Schema.define(version: 20140908152206) do
     t.datetime "updated_at"
   end
 
-  add_index "spots", ["name"], name: "index_spots_on_name", using: :btree
+  add_index "spots", ["name"], name: "index_spots_on_name"
 
   create_table "spots_sports", id: false, force: true do |t|
     t.integer "spot_id"
     t.integer "sport_id"
   end
 
-  add_index "spots_sports", ["sport_id"], name: "index_spots_sports_on_sport_id", using: :btree
-  add_index "spots_sports", ["spot_id", "sport_id"], name: "index_spots_sports_on_spot_id_and_sport_id", unique: true, using: :btree
-  add_index "spots_sports", ["spot_id"], name: "index_spots_sports_on_spot_id", using: :btree
+  add_index "spots_sports", ["sport_id"], name: "index_spots_sports_on_sport_id"
+  add_index "spots_sports", ["spot_id", "sport_id"], name: "index_spots_sports_on_spot_id_and_sport_id", unique: true
+  add_index "spots_sports", ["spot_id"], name: "index_spots_sports_on_spot_id"
 
 end
