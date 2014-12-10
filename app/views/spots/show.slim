@@ -1,68 +1,36 @@
-<div>
-	<p id="notice"><%= notice %></p>
+div
+  #notice
+    = notice
 
-	<p>
-	  <strong>Name:</strong>
-	  <%= @spot.name %>
-	</p>
+	p
+	  strong Name:
+	  = @spot.name
 
-	<p>
-	  <strong>Sports:</strong>
-	   	<%= render partial: "layouts/sport", collection: @spot.sports  %>
-	</p>
+	p
+	  strong Sports:
+	  = render partial: "layouts/sport", collection: @spot.sports
 
+	p
+	  strong Seasons:
+	  - 12.times do |t| 
+	   	= @spot.seasons.find(1).get_months[t] if @spot.seasons.any?
+	  	= @spot.seasons.find(1).get_seasons[t] if @spot.seasons.any?
 
-	<p>
-	  <strong>Seasons:</strong>
-	  <% 12.times do |t| %>
-	   	<%= @spot.seasons.find(1).get_months[t] if @spot.seasons.any?%>
-	  	<%= @spot.seasons.find(1).get_seasons[t] if @spot.seasons.any?%>
-	  <% end %>
+	  #chartContainer FusionCharts XT will load here!
 
-	  <div id="chartContainer">FusionCharts XT will load here!</div>
-	</p>
+	- if @spot.schools.any?
+      h3 Schools (#{spot.schools.count})
+      ul.schools
+        = render partial: "schools/school_short", collection: @schools
 
-	<% if @spot.schools.any? %>
-      <h3>Schools (<%= @spot.schools.count %>)</h3>
-      <ul class="schools">
-        <%= render partial: "schools/school_short", collection: @schools %>
-      </ul>
-    <% end %>
-</div>
+=' link_to 'Edit', edit_spot_path(@spot) 
+' |
+= link_to 'Back', spots_path
 
 
-<%= link_to 'Edit', edit_spot_path(@spot) %> |
-<%= link_to 'Back', spots_path %>
+#map-canvas
+  | &nbsp;
 
-<!-- Begin Google Maps Script -->
- <script>
-function initialize() {
-  var myLatlng = new google.maps.LatLng( <%= @spot.latitude %>, 
-  				<%= @spot.longitude %>);
-  var mapOptions = {
-    zoom: 4,
-    center: myLatlng
-  }
-  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-  var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: '<%= @spot.name %>'
-  });
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-
-</script>
-
-<!-- End of Google Maps Script -->
-
-<div id="map-canvas"></div>
-
-
-<div id="spot-images">
-	<% @photos.each do |img| %>
-		<%= image_tag img.image_url, size: "400x300", class: "img-rounded"%>
-	<% end %>
-</div>
+#spot-images
+  - @photos.each do |img|
+    = image_tag img.image_url, size: "400x300", class: "img-rounded"

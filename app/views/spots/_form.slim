@@ -1,39 +1,35 @@
-<%= form_for(@spot, :html => { :multipart => true }) do |f| %>
-  <% if @spot.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@spot.errors.count, "error") %> prohibited this spot from being saved:</h2>
+= form_for(@spot, :html => { :multipart => true }) do |f|
+  - if @spot.errors.any?
+    #error_explanation
+      h2
+        =' pluralize(@spot.errors.count, "error")
+        prohibited this spot from being saved:
 
-      <ul>
-      <% @spot.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+      ul
+      - @spot.errors.full_messages.each do |message| 
+        li = message
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
-  </div>
-  <% for sport in Sport.all %>
-    <div class="field">
-        <%= check_box_tag "spot[sport_ids][]", sport.id, @spot.sports.include?(sport) %>
-        <%= sport.name %>
-    </div>
-  <% end %>
+  .field
+    = f.label :name
+    br
+    = f.text_field :name
+  .field
+    = f.label :latitude
+    br
+    = f.text_field :latitude
+
+  .field
+    = f.label :longitude
+    br
+    = f.text_field :longitude
+
+  - for sport in Sport.all
+    .field
+      = check_box_tag "spot[sport_ids][]", sport.id, @spot.sports.include?(sport)
+      = sport.name
 
 
-  <%= render partial: "layouts/photos", locals: {f: f} %>
+  = render partial: "layouts/photos", locals: {f: f}
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  .actions
+    = f.submit

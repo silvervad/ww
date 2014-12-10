@@ -1,32 +1,26 @@
-<% provide(:title, 'Spots') %>
-<h1>Listing spots</h1>
+- provide(:title, 'Spots')
+h1 Listing spots
 
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Sports</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+table.table.table-striped.table-hover
+  thead
+    tr
+      th Name
+      th Latitude
+      th Longitude
+      th Sports
+      th colspan="3"
 
-  <tbody>
-    <% @spots.each do |spot| %>
-      <tr>
-        <td><%= spot.name %></td>
-        <td><%= spot.latitude %></td>
-        <td><%= spot.longitude %></td>
-        <td><%= render partial: "layouts/sport", collection: spot.sports %></td>
-        <td><%= link_to 'Show', spot %></td>
-        <td><%= link_to 'Edit', edit_spot_path(spot) %></td>
-        <td><%= link_to 'Destroy', spot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  tbody
+    - @spots.each do |spot|
+      tr
+        td #{ spot.name }
+        td #{ spot.latitude }
+        td #{ spot.longitude }
+        td = render partial: "layouts/sport", collection: spot.sports
+        td = link_to 'Show', spot
+        td = link_to 'Edit', edit_spot_path(spot)
+        td = link_to 'Destroy', spot, method: :delete, data: { confirm: 'Are you sure?' }
 
-<br>
+br
 
-<%= link_to 'New Spot', new_spot_path %>
+= link_to 'New Spot', new_spot_path

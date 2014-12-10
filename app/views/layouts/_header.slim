@@ -1,20 +1,14 @@
-<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+nav.navbar.navbar-inverse.navbar-static-top role="navigation"
 	 
-    <div class="container-fluid">
-          <%= link_to "Wind & Waves", root_path, id: "logo" %>
-          <nav>
-            <ul class="nav navbar-nav">
-              <li><%= link_to "Home",    root_path %></li>
-              <li><%= link_to "Spots", spots_path %></li>
-              <li><%= link_to "Schools", schools_path %></li>
-            </ul>
-          </nav>
-    </div>
+    .container-fluid
+          = link_to "Wind & Waves", root_path, id: "logo"
+          nav
+            ul class="nav navbar-nav"
+              li = link_to "Home", root_path
+              li = link_to "Spots", spots_path
+              li = link_to "Schools", schools_path
 
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-      <% end %>
-    </div>
+    .container
+      - flash.each do |key, value|
+        = content_tag(:div, value, class: "alert alert-#{key}")
 
-</nav>
