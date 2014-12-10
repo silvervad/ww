@@ -1,21 +1,37 @@
-initializeSpotsMap = () ->
+if document.getElementById('map-canvas')
 
-  #myLatlng = new google.maps.LatLng( spot.latitude, spot.longitude)
-  # spot.name ??
-  myLatlng = new google.maps.LatLng( 10, 10 )
-  mapOptions = {
-    zoom: 4,
-    center: myLatlng
-  }
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions)
+  # define for one spot or multiple
+  if gon.mapspots.id
+    mapspots = [
+      gon.mapspots
+    ]
+    map = new google.maps.Map document.getElementById('map-canvas'), {
+      zoom: 5,
+      center: new google.maps.LatLng( gon.mapspots.latitude, gon.mapspots.longitude )
+    }
+  else
+    mapspots = gon.mapspots
+    map = new google.maps.Map document.getElementById('map-canvas'), {
+      zoom: 3,
+      center: new google.maps.LatLng( 0, 0 )
+    }
 
-  marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: 'name'
-  })
-
-  console.log( myLatlng, 'init' )
 
 
-google.maps.event.addDomListener(window, 'load', initializeSpotsMap)
+  marker = []
+  for item in mapspots
+    marker[item.id] = {
+      'name': item.name
+      'LatLng': new google.maps.LatLng( item.latitude, item.longitude )
+    }
+    new google.maps.Marker({
+        position: marker[item.id]['LatLng'],
+        map: map,
+        title: 'name'
+    })
+
+  console.log(marker)
+
+  google.maps.event.addDomListener(window, 'load')
+
+  

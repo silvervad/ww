@@ -5,6 +5,7 @@ class SpotsController < ApplicationController
   # GET /spots.json
   def index
     @spots = Spot.all
+    gon.mapspots = @spots
   end
 
   # GET /spots/1
@@ -12,6 +13,7 @@ class SpotsController < ApplicationController
   def show
     @photos = @spot.photos.all
     @schools = @spot.schools.all
+    gon.mapspots = @spot
   end
 
   # GET /spots/new
