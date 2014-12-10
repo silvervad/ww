@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908152206) do
+ActiveRecord::Schema.define(version: 20141210100205) do
 
   create_table "photos", force: true do |t|
     t.string   "image"
@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(version: 20140908152206) do
     t.string "name"
   end
 
+  create_table "sports_spots", id: false, force: true do |t|
+    t.integer "spot_id"
+    t.integer "sport_id"
+  end
+
+  add_index "sports_spots", ["sport_id"], name: "index_sports_spots_on_sport_id"
+  add_index "sports_spots", ["spot_id", "sport_id"], name: "index_sports_spots_on_spot_id_and_sport_id", unique: true
+  add_index "sports_spots", ["spot_id"], name: "index_sports_spots_on_spot_id"
+
   create_table "spots", force: true do |t|
     t.string   "name"
     t.decimal  "latitude",   precision: 10, scale: 6
@@ -72,14 +81,5 @@ ActiveRecord::Schema.define(version: 20140908152206) do
   end
 
   add_index "spots", ["name"], name: "index_spots_on_name"
-
-  create_table "spots_sports", id: false, force: true do |t|
-    t.integer "spot_id"
-    t.integer "sport_id"
-  end
-
-  add_index "spots_sports", ["sport_id"], name: "index_spots_sports_on_sport_id"
-  add_index "spots_sports", ["spot_id", "sport_id"], name: "index_spots_sports_on_spot_id_and_sport_id", unique: true
-  add_index "spots_sports", ["spot_id"], name: "index_spots_sports_on_spot_id"
 
 end

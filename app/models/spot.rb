@@ -4,9 +4,8 @@ class Spot < ActiveRecord::Base
 	has_many :photos, as: :imageable, dependent: :destroy
   accepts_nested_attributes_for :photos
 
-  
-  has_and_belongs_to_many :sports, join_table: "spots_sports"
-  table_name = 'Spots'
+  has_and_belongs_to_many :sports
+
 
   has_many :seasons
 
