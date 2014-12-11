@@ -1,48 +1,50 @@
-<%= form_for(@school) do |f| %>
-  <% if @school.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
+= form_for(@school) do |f|
+  - if @school.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@school.errors.count, "error") 
+        | prohibited this school from being saved:
 
-      <ul>
-      <% @school.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+      ul
+        -@school.errors.full_messages.each do |message|
+          li = message
 
-  <div class="field">
-    <%= f.label :spot_id %><br>
-    <%= f.number_field :spot_id %>
-  </div>
-  <div class="field">
-    <%= f.label :sports %><br>
-    <%= f.number_field :sports %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :link %><br>
-    <%= f.text_field :link %>
-  </div>
-  <div class="field">
-    <%= f.label :affiliation %><br>
-    <%= f.number_field :affiliation %>
-  </div>
+  .field
+    = f.label :spot_id
+    br
+    = f.number_field :spot_id
 
-  <%= render partial: "layouts/photos", locals: {f: f} %>
+  .field
+    = f.label :sports
+    br
+    = f.number_field :sports
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  .field
+    = f.label :name
+    br
+    = f.text_field :name
+
+  .field
+    = f.label :latitude
+    br
+    = f.text_field :latitude
+
+  .field
+    = f.label :longitude
+    br
+    = f.text_field :longitude
+
+  .field
+    = f.label :link
+    br
+    = f.text_field :link
+
+  .field
+    = f.label :affiliation
+    br
+    = f.number_field :affiliation
+
+  = render partial: "layouts/photos", locals: {f: f}
+
+  .actions
+    = f.submit

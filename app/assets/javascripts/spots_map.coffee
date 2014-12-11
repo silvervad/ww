@@ -25,9 +25,9 @@ if document.getElementById('map-canvas')
       'LatLng': new google.maps.LatLng( item.latitude, item.longitude )
     }
     new google.maps.Marker({
-        position: marker[item.id]['LatLng'],
-        map: map,
-        title: 'name'
+        position: marker[item.id]['LatLng']
+        map: map
+        title: marker[item.id]['name']
     })
 
   console.log(marker)

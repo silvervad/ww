@@ -6,12 +6,14 @@ class SchoolsController < ApplicationController
   # GET /schools.json
   def index
     @schools = School.all
+    gon.mapspots = @schools
   end
 
   # GET /schools/1
   # GET /schools/1.json
   def show
     @photos = @school.photos.all
+    gon.mapspots = @school
   end
 
   # GET /schools/new
