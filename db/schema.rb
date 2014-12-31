@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210100205) do
+ActiveRecord::Schema.define(version: 20141231074847) do
 
   create_table "photos", force: true do |t|
     t.string   "image"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20141210100205) do
     t.integer  "imageable_id"
     t.string   "imageable_type"
   end
+
+  create_table "school_seasons", force: true do |t|
+    t.string   "collection"
+    t.integer  "school_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "school_seasons", ["school_id"], name: "index_school_seasons_on_school_id"
 
   create_table "schools", force: true do |t|
     t.integer  "spot_id"
@@ -36,29 +45,6 @@ ActiveRecord::Schema.define(version: 20141210100205) do
   add_index "schools", ["name"], name: "index_schools_on_name"
   add_index "schools", ["spot_id"], name: "index_schools_on_spot_id"
 
-  create_table "seasons", force: true do |t|
-    t.integer  "jan",        limit: 1
-    t.integer  "feb",        limit: 1
-    t.integer  "mar",        limit: 1
-    t.integer  "apr",        limit: 1
-    t.integer  "may",        limit: 1
-    t.integer  "jun",        limit: 1
-    t.integer  "jul",        limit: 1
-    t.integer  "aug",        limit: 1
-    t.integer  "sep",        limit: 1
-    t.integer  "oct",        limit: 1
-    t.integer  "nov",        limit: 1
-    t.integer  "dec",        limit: 1
-    t.integer  "sport_id"
-    t.integer  "spot_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "seasons", ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], name: "index_seasons_on_months"
-  add_index "seasons", ["sport_id"], name: "index_seasons_on_sport_id"
-  add_index "seasons", ["spot_id"], name: "index_seasons_on_spot_id"
-
   create_table "sports", force: true do |t|
     t.string "name"
   end
@@ -71,6 +57,15 @@ ActiveRecord::Schema.define(version: 20141210100205) do
   add_index "sports_spots", ["sport_id"], name: "index_sports_spots_on_sport_id"
   add_index "sports_spots", ["spot_id", "sport_id"], name: "index_sports_spots_on_spot_id_and_sport_id", unique: true
   add_index "sports_spots", ["spot_id"], name: "index_sports_spots_on_spot_id"
+
+  create_table "spot_seasons", force: true do |t|
+    t.string   "collection"
+    t.integer  "spot_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "spot_seasons", ["spot_id"], name: "index_spot_seasons_on_spot_id"
 
   create_table "spots", force: true do |t|
     t.string   "name"

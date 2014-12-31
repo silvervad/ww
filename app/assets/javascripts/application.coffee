@@ -13,6 +13,4 @@
 
 #= require jquery
 #= require jquery_ujs
-#= require fusioncharts/fusioncharts
-#= require fusioncharts/themes/fusioncharts.theme.zune
 #= require_tree .

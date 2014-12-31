@@ -14,6 +14,8 @@ class SpotsController < ApplicationController
     @photos = @spot.photos.all
     @schools = @spot.schools.all
     gon.mapspots = @spot
+
+    @seasons = @spot.seasons.first.collection.split(',').collect!
   end
 
   # GET /spots/new

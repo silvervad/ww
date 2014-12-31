@@ -8,4 +8,6 @@ class School < ActiveRecord::Base
 	validates :latitude,  presence: true
 	validates :longitude,  presence: true
 	validates :affiliation,  presence: true
+
+  has_many :seasons, class_name: "SchoolSeason"
 end

@@ -6,15 +6,5 @@ class Spot < ActiveRecord::Base
 
   has_and_belongs_to_many :sports
 
-
-  has_many :seasons
-
-	#serialize :seasons
+  has_many :seasons, class_name: "SpotSeason"
 end
-
-  private
-
-    #def set_seasons
-    #  self.seasons ||= [0,0,0,0,0,0,0,0,0,0,0,0]
-    #end
-

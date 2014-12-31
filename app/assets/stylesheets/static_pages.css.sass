@@ -1,3 +1,42 @@
-// Place all the styles related to the StaticPages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// Partials
+.seasons-partial
+  list-style-type: none
+  height: 100px
+  padding-left: 0
+  &>li:after
+    content: '' 
+    float: left
+    margin-right: 10px
+  & li.m1:after
+    content: 'January' 
+  & li.m2:after
+    content: 'February' 
+  & li.m3:after
+    content: 'March' 
+  & li.m4:after
+    content: 'April' 
+  & li.m5:after
+    content: 'May' 
+  & li.m6:after
+    content: 'June' 
+  & li.m7:after
+    content: 'Jule' 
+  & li.m8:after
+    content: 'August' 
+  & li.m9:after
+    content: 'September' 
+  & li.m10:after
+    content: 'October' 
+  & li.m11:after
+    content: 'November' 
+  & li.m12:after
+    content: 'December' 
+
+  & li.a0
+    color: #aaa
+  & li.a1
+    color: #000
+  & li.a2
+    color: green
+    font-weight: bold
+

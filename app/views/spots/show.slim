@@ -12,11 +12,13 @@ div
 
 	p
 	  strong Seasons:
-	  - 12.times do |t| 
+	  //- 12.times do |t| 
 	   	= @spot.seasons.find(1).get_months[t] if @spot.seasons.any?
-	  	= @spot.seasons.find(1).get_seasons[t] if @spot.seasons.any?
 
-	  #chartContainer FusionCharts XT will load here!
+
+    #chartContainer FusionCharts XT will load here!
+    //= @seasons.inspect
+    = render partial: "layouts/seasons", locals: { seasons: @seasons }
 
 	- if @spot.schools.any?
       h3 Schools (#{spot.schools.count})
