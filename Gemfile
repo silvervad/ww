@@ -16,7 +16,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 gem 'pg', '0.17.1'
 gem 'bootstrap-sass', '>= 3.3'
-gem 'faker', '~> 1.4.2'
+#gem 'faker', '~> 1.4.2'
 gem 'will_paginate', '~> 3.0.7'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'carrierwave'
@@ -53,9 +53,9 @@ group :development, :test do
  end
 
 group :test do
-  gem 'selenium-webdriver', '~> 2.42.0'
-  gem 'capybara', '~> 2.4.1'
-  gem 'factory_girl_rails', '~> 4.4.1'
+  #gem 'selenium-webdriver', '~> 2.42.0'
+  #gem 'capybara', '~> 2.4.1'
+  #gem 'factory_girl_rails', '~> 4.4.1'
   #gem 'cucumber-rails', '1.4.0', :require => false
   #gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
@@ -69,7 +69,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'libnotify', '~> 0.8.3'
+#gem 'libnotify', '~> 0.8.3'
 
 group :production do
   gem 'rails_12factor', '~> 0.0.2'

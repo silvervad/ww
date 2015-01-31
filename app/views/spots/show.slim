@@ -13,13 +13,13 @@ p
 p
   strong Seasons:
   - 12.times do |t| 
-   	= @spot.seasons.find(1).get_months[t] if @spot.seasons.any?
-  	= @spot.seasons.find(1).get_seasons[t] if @spot.seasons.any?
+   	/= @spot.seasons.find(1).get_months[t] if @spot.seasons.any?
+  	/= @spot.seasons.find(1).get_seasons[t] if @spot.seasons.any?
 
 /  #chartContainer FusionCharts XT will load here!
 
 - if @spot.schools.any?
-    h3 Schools (#{spot.schools.count})
+    h3 Schools (#{@spot.schools.count})
     ul.schools
       = render partial: "schools/school_short", collection: @schools
 
