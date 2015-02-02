@@ -1,6 +1,11 @@
-= f.fields_for :photos do |p|
+= f.label :image
+br
+= f.file_field :image, :multiple => true, name: "photos[image][]"
+p
+
+/= f.fields_for :photos do |p|
    .field
      = p.label :image
      br
      = p.file_field :image, :multiple => true, name: "photos[image][]"
-br
+/br

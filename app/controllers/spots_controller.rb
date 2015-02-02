@@ -27,6 +27,9 @@ class SpotsController < ApplicationController
   # GET /spots/1/edit
   def edit
     @photos = @spot.photos.all
+    #unless @photos.exists? 
+     # @photos = Photo.create
+    #end
   end
 
   # POST /spots
