@@ -1,12 +1,2 @@
 1. Сделать, чтобы при редактировании спота, на котором еще нет фотографий, их можно было добавлять.
  layouts/_photos.slim вызывается из _form.slim, но когда нет ни одной фотографии, не создается ни одно поле для добавления.
- Можно почитать это http://guides.rubyonrails.org/form_helpers.html#understanding-parameter-naming-conventions
- И посмотреть nested forms в railcasts http://railscasts.com/episodes/196-nested-model-form-part-1
- 
- Откуда берется :photos в _photos.slim?
-
- А еще - как сделать, чтобы в _photos.slim отображалось только одно поле для редактирования?
- 
- Вроде как нужно добавить как минимум одно поле для фоток при создании спота, но оно и так вроде делается в spot.edit и в spot.new
- 
- done!

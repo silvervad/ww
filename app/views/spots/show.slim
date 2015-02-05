@@ -1,30 +1,33 @@
-p.spotname
-  strong = @spot.name
+p.spot_name.h-gradient
+    = @spot.name
 
-#keyboard.fotorama data-navposition="bottom" data-nav="thumbs" data-width="100%" data-height="100%" data-fit="cover" data-thumbwidth="200" data-thumbheight="100" data-allowfullscreen="native" data-hash="true" data-keyboard="true"
-	- @photos.each do |img|
-    	= image_tag img.image_url
+#left_menu.left_menu
 
-p
-  strong Sports:
-  = render partial: "layouts/sport", collection: @spot.sports
+  p.spot_info
+    strong Sports:
+    = render partial: "layouts/sport", collection: @spot.sports
+  
+  
+    strong Seasons:
+    - 12.times do |t| 
+   	  /= @spot.seasons.find(1).get_months[t] if @spot.seasons.any?
+  	  /= @spot.seasons.find(1).get_seasons[t] if @spot.seasons.any?
+  	
+    /  #chartContainer FusionCharts XT will load here!
+  	
+    - if @spot.schools.any?
+      h3 Schools (#{@spot.schools.count})
+      ul.schools
+        = render partial: "schools/school_short", collection: @schools
+      
+      =' link_to 'Edit', edit_spot_path(@spot) 
+      ' |
+      = link_to 'Back', spots_path
 
-p
-  strong Seasons:
-  - 12.times do |t| 
-   	/= @spot.seasons.find(1).get_months[t] if @spot.seasons.any?
-  	/= @spot.seasons.find(1).get_seasons[t] if @spot.seasons.any?
-
-/  #chartContainer FusionCharts XT will load here!
-
-- if @spot.schools.any?
-    h3 Schools (#{@spot.schools.count})
-    ul.schools
-      = render partial: "schools/school_short", collection: @schools
-
-=' link_to 'Edit', edit_spot_path(@spot) 
-' |
-= link_to 'Back', spots_path
+#keyboard.fotorama.rama_wrap data-navposition="bottom" data-nav="thumbs" data-width="100%" data-height="100%" data-fit="cover" data-thumbwidth="200" data-thumbheight="100" data-allowfullscreen="true" data-hash="true" data-keyboard="true"
+	  - @photos.each do |img|
+      	= image_tag img.image_url
+  	  
 
 
 #map-canvas 

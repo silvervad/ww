@@ -28,7 +28,6 @@
       = check_box_tag "spot[sport_ids][]", sport.id, @spot.sports.include?(sport)
       = sport.name
 
-
   = render partial: "layouts/photos", locals: {f: f}
   
 
