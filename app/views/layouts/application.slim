@@ -10,12 +10,12 @@ head
   = render 'layouts/gmaps'
 
 body
-  = render 'layouts/header'
-
   .container
-    == yield
+    = render 'layouts/header'
 
-  = render 'layouts/footer'
+    == yield
+    
+    = render 'layouts/footer'
 
   = javascript_include_tag src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
   = javascript_include_tag src="https://maps.googleapis.com/maps/api/js?v=3.exp"

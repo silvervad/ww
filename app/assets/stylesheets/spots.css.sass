@@ -1,3 +1,5 @@
+@import compass
+
 .spot_info
 	padding: 0
 	margin: 0
@@ -7,9 +9,18 @@
 	font-size: 20pt
 	padding: 3px
 	position: absolute
-	bottom: 80px
 	z-index: 100
-
+	cursor: pointer
+	right: 0px
+	
+#left-menu
+	font-size: 20pt
+	padding: 3px
+	position: absolute
+	z-index: 100
+	cursor: pointer
+	top: 30px
+	
 ul.navbar
 	display: inline
 	li
@@ -21,3 +32,15 @@ ul.navbar
 	width: 100% 
 	margin: 0
 	padding: 0
+	
+.rama-wrap
+	width: 62%
+	float: right
+	position: relative
+	transition: width 0.5s
+
+.rama-wrap-menu
+	width: 100%
+	float: right
+	position: relative
+	transition: width 0.5s
