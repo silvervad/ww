@@ -54,3 +54,8 @@ Continent.create!([
 	{name: "South America"},
 	{name: "Australia"},
 ])
+
+Country.delete_all
+Country.create!(name: "Egypt", :continent => Continent.find_by(name: 'Africa'))
+Country.create!(name: "Kenya", :continent => Continent.find_by(name: 'Africa'))
+Country.create!(name: "Mauritius", :continent => Continent.find_by(name: 'Africa'))
