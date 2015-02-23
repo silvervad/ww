@@ -42,6 +42,7 @@ gem 'gon'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'seed_dump'
   #gem 'rspec-rails', '~> 3.0.2'
   #gem 'guard-rspec', '~> 4.3.1'
   #gem 'spring-commands-rspec', '~> 1.0.2'

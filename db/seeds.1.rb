@@ -26,31 +26,15 @@ Spot.create!(name: 'Marsa Alam - Blue Lagoon', latitude: 24.910606, longitude: 3
 Photo.delete_all
 Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/1/1.jpg')), imageable_id: 1, imageable_type: 'Spot')
 Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/1/soma-bay-holiday-10.jpg')), imageable_id: 1, imageable_type: 'Spot')
-Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/1/10.jpg')), imageable_id: 1, imageable_type: 'Spot')
-Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/1/1280x.jpeg')), imageable_id: 1, imageable_type: 'Spot')
-Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/1/Kite_Junkies_Sharm_8.jpg')), imageable_id: 1, imageable_type: 'Spot')
-Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/1/kite-junkies-amazing.jpg')), imageable_id: 1, imageable_type: 'Spot')
-Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/1/panoramic-1a.jpg')), imageable_id: 1, imageable_type: 'Spot')
 Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/2/10.jpg')), imageable_id: 2, imageable_type: 'Spot')
 Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/2/1280_2.jpeg')), imageable_id: 2, imageable_type: 'Spot')
 Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/2/1280x.jpeg')), imageable_id: 2, imageable_type: 'Spot')
 Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/3/kite-junkies-amazing.jpg')), imageable_id: 3, imageable_type: 'Spot')
 Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/3/panoramic-1a.jpg')), imageable_id: 3, imageable_type: 'Spot')
-Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/3/Kite_Junkies_Sharm_8.jpg')), imageable_id: 3, imageable_type: 'Spot')
-Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/3/kite-junkies-amazing.jpg')), imageable_id: 3, imageable_type: 'Spot')
-Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/4/1280x.jpeg')), imageable_id: 4, imageable_type: 'Spot')
-Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/4/1.jpg')), imageable_id: 4, imageable_type: 'Spot')
 
 School.delete_all
 School.create!(spot_id: 1, name: 'Tornado Surf', latitude: 26.795834, longitude: 33.941896,
 	link: 'http://www.tornadosurf.com', affiliation: 1)
 
-Continent.delete_all
-Continent.create!([
-  {name: "Africa"},
-	{name: "Europe"},
-	{name: "Asia"},
-	{name: "North America"},
-	{name: "South America"},
-	{name: "Australia"},
-])
+
+
