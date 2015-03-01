@@ -1,4 +1,4 @@
-= form_for(@spot, :html => { :multipart => true }) do |f|
+= form_for([@country, @spot], :html => { :multipart => true }) do |f|
   - if @spot.errors.any?
     #error_explanation
       h2
@@ -23,10 +23,15 @@
     br
     = f.text_field :longitude
 
-  - for sport in Sport.all
-    .field
-      = check_box_tag "spot[sport_ids][]", sport.id, @spot.sports.include?(sport)
-      = sport.name
+  .field
+    - for sport in Sport.all
+      .field
+        = check_box_tag "spot[sport_ids][]", sport.id, @spot.sports.include?(sport)
+        = sport.name
+     
+  .field 
+    = f.select :country_id, options_from_collection_for_select(Country.all, :id, :name)
+     // = country.name
 
   = render partial: "layouts/photos", locals: {f: f}
   

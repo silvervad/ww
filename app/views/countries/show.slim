@@ -1,0 +1,6 @@
+p
+  br
+  - if @country.spots.any?
+    h3 Spots in #{@country.name} (#{@country.spots.count})
+    ul
+    = render partial: "spots/spot_short", collection: @country.spots

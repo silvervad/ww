@@ -23,6 +23,7 @@ gem 'compass'
 gem 'compass-rails'
 gem "slim-rails"
 gem 'sass-rails'
+gem 'friendly_id'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

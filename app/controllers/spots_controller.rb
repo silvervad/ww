@@ -1,10 +1,11 @@
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
+  before_action :set_country
 
   # GET /spots
   # GET /spots.json
   def index
-    @spots = Spot.all
+    @spots = @country.spots
     gon.mapspots = @spots
   end
 
@@ -15,6 +16,10 @@ class SpotsController < ApplicationController
     @schools = @spot.schools.all
     gon.mapspots = @spot
 
+    if request.path != country_spot_path(@country, @spot)
+      return redirect_to [@country, @spot], :status => :moved_permanently
+    end
+    
     #@seasons = @spot.seasons.first.collection.split(',').collect!
   end
 
@@ -44,11 +49,9 @@ class SpotsController < ApplicationController
             @photo = @spot.photos.create!(:image => a, :imageable_id => @spot.id)
           end
         end
-        format.html { redirect_to @spot, notice: "Spot was successfully created." }
-        format.json { render :show, status: :created, location: @spot }
+        format.html { redirect_to [@country,@spot], notice: "Spot was successfully created." }
       else
         format.html { render :new }
-        format.json { render json: @spot.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -65,11 +68,9 @@ class SpotsController < ApplicationController
           end
         end
 
-        format.html { redirect_to @spot, notice: 'Spot was successfully updated.' }
-        format.json { render :show, status: :ok, location: @spot }
+        format.html { redirect_to [ @country, @spot ] , notice: 'Spot was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @spot.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -79,20 +80,23 @@ class SpotsController < ApplicationController
   def destroy
     @spot.destroy
     respond_to do |format|
-      format.html { redirect_to spots_url, notice: 'Spot was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to country_spots_url(@country), notice: 'Spot was successfully destroyed.' }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_spot
-      @spot = Spot.find(params[:id])
+      @spot = Spot.friendly.find(params[:id])
+    end
+    
+    def set_country
+      @country = Country.friendly.find(params[:country_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def spot_params
-      params.require(:spot).permit(:name, :latitude, :longitude, :seasons, {:sport_ids => []},
+      params.require(:spot).permit(:name, :latitude, :longitude, :seasons, :country_id, {:sport_ids => []},
         photos_attributes: [:id, :image, :imageable_id])
     end
 end

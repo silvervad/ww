@@ -19,10 +19,10 @@ table.table.table-striped.table-hover
         td #{ spot.latitude }
         td #{ spot.longitude }
         td = render partial: "layouts/sport", collection: spot.sports
-        td = link_to 'Show', spot
-        td = link_to 'Edit', edit_spot_path(spot)
-        td = link_to 'Destroy', spot, method: :delete, data: { confirm: 'Are you sure?' }
+        td = link_to 'Show', country_spot_path(@country, spot)
+        td = link_to 'Edit', edit_country_spot_path(@country, spot)
+        td = link_to 'Destroy', country_spot_path(@country, spot), method: :delete, data: { confirm: 'Are you sure?' }
 
 br
 
-= link_to 'New Spot', new_spot_path
+= link_to 'New Spot', new_country_spot_path(@country)

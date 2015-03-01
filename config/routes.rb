@@ -1,15 +1,21 @@
 Rails.application.routes.draw do
   
-  get 'users/new'
+  #get 'users/new'
 
-  root  'static_pages#home'
+  #root  'static_pages#home'
+  root 'countries#index'
   
-  match '/signup',  to: 'users#new',            via: 'get'
+  #match '/signup',  to: 'users#new',            via: 'get'
 
 
-  resources :schools
+  #resources :schools
 
-  resources :spots
+  #resources :spots, path: '', only: [ :show, :edit, :update, :destroy, :new, :create ]
+  
+  resources :countries, path: '', only: [ :show ] do 
+    resources :spots, path: ''
+  end
+  
   #resources :photos
 
   # The priority is based upon order of creation: first created -> highest priority.

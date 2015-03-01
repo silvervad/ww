@@ -10,18 +10,33 @@ Sport.create!(name: "Surfing")
 Sport.create!(name: "Windsurfing")
 Sport.create!(name: "Kitesurfing")
 
+Continent.delete_all
+Continent.create!([
+  {name: "Africa"},
+	{name: "Europe"},
+	{name: "Asia"},
+	{name: "North America"},
+	{name: "South America"},
+	{name: "Australia"},
+])
+
+Country.delete_all
+Country.create!(name: "Egypt", continent: Continent.find_by(name: 'Africa'))
+Country.create!(name: "Kenya", continent: Continent.find_by(name: 'Africa'))
+Country.create!(name: "Mauritius", continent: Continent.find_by(name: 'Africa'))
+
 Spot.delete_all
 Spot.create!(name: 'Soma Bay', latitude: 26.844535, longitude: 33.956664, 
-	:sports => Sport.where(:name => ['Kitesurfing', 'Windsurfing']))
+	:sports => Sport.where(:name => ['Kitesurfing', 'Windsurfing']), country: Country.find_by(name: 'Egypt'))
 
 Spot.create!(name: 'El Gouna', latitude: 27.396147, longitude: 33.687928,
-	:sports => Sport.where(:name => ['Kitesurfing', 'Windsurfing']))
+	:sports => Sport.where(:name => ['Kitesurfing', 'Windsurfing']), country: Country.find_by(name: 'Egypt'))
 
 Spot.create!(name: 'Sharm el Sheikh, Nabq', latitude: 28.053572, longitude: 34.441985,
-	:sports => Sport.where(:name => ['Kitesurfing', 'Windsurfing']))
+	:sports => Sport.where(:name => ['Kitesurfing', 'Windsurfing']), country: Country.find_by(name: 'Egypt'))
 
 Spot.create!(name: 'Marsa Alam - Blue Lagoon', latitude: 24.910606, longitude: 34.976907,
-	:sports => Sport.where(:name => ['Kitesurfing', 'Windsurfing']))
+	:sports => Sport.where(:name => ['Kitesurfing', 'Windsurfing']), country: Country.find_by(name: 'Egypt'))
 
 Photo.delete_all
 Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/1/1.jpg')), imageable_id: 1, imageable_type: 'Spot')
@@ -45,17 +60,3 @@ School.delete_all
 School.create!(spot_id: 1, name: 'Tornado Surf', latitude: 26.795834, longitude: 33.941896,
 	link: 'http://www.tornadosurf.com', affiliation: 1)
 
-Continent.delete_all
-Continent.create!([
-  {name: "Africa"},
-	{name: "Europe"},
-	{name: "Asia"},
-	{name: "North America"},
-	{name: "South America"},
-	{name: "Australia"},
-])
-
-Country.delete_all
-Country.create!(name: "Egypt", :continent => Continent.find_by(name: 'Africa'))
-Country.create!(name: "Kenya", :continent => Continent.find_by(name: 'Africa'))
-Country.create!(name: "Mauritius", :continent => Continent.find_by(name: 'Africa'))
