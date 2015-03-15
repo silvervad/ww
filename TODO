@@ -1,19 +1,18 @@
 СТРАНИЦА СПОТА - ГЛАВНОЕ
 =========================
 1. Сделать сезоны
-4. Карта при создании спота
-5. Добавление новой страны
+
 
 
 
 
 Среднее
 =========================
-
 3. Авторизация пользователей
-
+5. Добавление новой страны
 6. Сделать главную страницу
 8. Рассылка
+
 
 
 
@@ -24,8 +23,10 @@ Optional
 1. Сделать навигацию через pushState и совместить спот и страну на одной карте,
 2. Кнопка перехода на ближайшую панораму
 3. Переписать spots#index
-4. Карта на споте должна выезжать
 5. Add labels to markers MarkerWithLabel
 6. Change infowindow style bubble
 7. Add destroy link to spots
+8. Add indexes for all tables (photos)
+9. Write tests for routes
+10. Write tests for something else
 

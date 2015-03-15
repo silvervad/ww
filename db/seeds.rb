@@ -22,6 +22,7 @@ Continent.create!([
 
 Country.delete_all
 Country.create!(name: "Egypt", continent: Continent.find_by(name: 'Africa'))
+Country.create!(name: "Tanzania", continent: Continent.find_by(name: 'Africa'))
 Country.create!(name: "Kenya", continent: Continent.find_by(name: 'Africa'))
 Country.create!(name: "Mauritius", continent: Continent.find_by(name: 'Africa'))
 Country.create!(name: "Dominican Republic", continent: Continent.find_by(name: 'North America'))

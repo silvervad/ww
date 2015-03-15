@@ -7,11 +7,10 @@ class Spot < ActiveRecord::Base
 	has_many :photos, as: :imageable, dependent: :destroy
   accepts_nested_attributes_for :photos
 
-  has_and_belongs_to_many :sports
+  has_many :seasons
+  has_many :sports, through: :seasons
 
-  has_many :seasons, class_name: "SpotSeason"
-  
-  def should_generate_new_friendly_id?
+   def should_generate_new_friendly_id?
      name_changed?
   end
 end

@@ -15,6 +15,10 @@ class CountriesController < ApplicationController
     @countries=Country.all
   end
   
+  def new
+  end
+  
+  
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_country
