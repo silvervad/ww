@@ -1,6 +1,7 @@
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
   before_action :set_country
+  before_action :set_spot_marker, only: [ :show, :edit ]
 
   # GET /spots
   # GET /spots.json
@@ -18,9 +19,6 @@ class SpotsController < ApplicationController
   def show
     @photos = @spot.photos.all
     @schools = @spot.schools.all
-    @markers = [ @spot.name, @spot.latitude, @spot.longitude, country_spot_url]
-    gon.markers = [[ @spot.name, @spot.latitude, @spot.longitude, country_spot_url]]
-    gon.country = @country.name
 
     if request.path != country_spot_path(@country, @spot)
       return redirect_to [@country, @spot], :status => :moved_permanently
@@ -32,12 +30,22 @@ class SpotsController < ApplicationController
   # GET /spots/new
   def new
     @spot = Spot.new
+    @spot.name = 'New spot'
+    @spot.latitude = 0
+    @spot.longitude = 0
     @photos = @spot.photos.build
+    
+    # passing markers and country name to gmaps js api
+    
+    gon.markers = [[ @spot.name, @spot.latitude, @spot.longitude, '']]
+    gon.country = @country.name
+    
   end
 
   # GET /spots/1/edit
   def edit
     @photos = @spot.photos.all
+
     #unless @photos.exists? 
      # @photos = Photo.create
     #end
@@ -86,8 +94,9 @@ class SpotsController < ApplicationController
   def destroy
     @spot.destroy
     respond_to do |format|
-      format.html { redirect_to country_spots_url(@country), notice: 'Spot was successfully destroyed.' }
+      format.html { redirect_to country_path(@country), notice: 'Spot was successfully destroyed.' }
     end
+    
   end
 
   private
@@ -98,6 +107,11 @@ class SpotsController < ApplicationController
     
     def set_country
       @country = Country.friendly.find(params[:country_id])
+    end
+    
+    def set_spot_marker
+      gon.markers = [[ @spot.name, @spot.latitude, @spot.longitude, country_spot_url]]
+      gon.country = @country.name
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

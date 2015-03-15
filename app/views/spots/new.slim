@@ -1,5 +1,15 @@
-h1 New spot
+// spots # new
+//=====================
 
-= render 'form'
 
-= link_to 'Back', country_spots_path(@country)
+- title = @country.name + ' | New spot'
+- provide(:title, title)
+
+= render 'layouts/navi'
+
+#right-menu
+  = render 'form'
+
+
+
+#new-spot-map-canvas

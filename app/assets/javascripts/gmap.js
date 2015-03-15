@@ -76,18 +76,39 @@ function gmap_init() {
   mode = "none";
   
 //Placing map in the div
+
+// for country#show action
   
   if (document.getElementById("country-map-canvas")) {
     map = new google.maps.Map(document.getElementById("country-map-canvas"),
     countryMapOptions);
-    mode = "country";
+    mode = "country";   
   }
+  
+// for spot#show action
 
   if (document.getElementById("spot-map-canvas")) {
     map = new google.maps.Map(document.getElementById("spot-map-canvas"),
     spotMapOptions);
-    mode = "spot";
+    mode = "spot";      
   }
+  
+//for spot#edit action
+
+  if (document.getElementById("edit-spot-map-canvas")) {
+    map = new google.maps.Map(document.getElementById("edit-spot-map-canvas"),
+    spotMapOptions);
+    mode = "edit";      
+  }
+  
+ //for spot#new action
+ 
+  if (document.getElementById("new-spot-map-canvas")) {
+    map = new google.maps.Map(document.getElementById("new-spot-map-canvas"),
+    spotMapOptions);
+    mode = "new";     
+  }
+
 
 
 // Placing markers and infoWindow
@@ -106,52 +127,76 @@ function gmap_init() {
         position: myLatLng,
         map: map,
         icon: iconNormal,
-        title: markers[i][0]
+        title: markers[i][0],
       });
       
       myBounds.extend(myLatLng);
-     
-      google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
-        return function() {
-          windowContent = "<span class=map-info-window>" + markers[i][0] + "</span>"
-          infowindow.setContent(windowContent);
-          infowindow.open(map, marker);
-          marker.setIcon(iconHover);
-        }
-      })(marker, i));
       
-      google.maps.event.addListener(marker, 'mouseout', (function(marker, i) {
-        return function() {
-          infowindow.close(map, marker);
-          marker.setIcon(iconNormal);
-        }
-      })(marker, i));
+      // listeners for 'edit' mode
+      if (mode == 'edit' || mode =='new') {
+        marker.setDraggable (true);
+        lat_field = $("#spot_latitude");
+        lon_field = $("#spot_longitude");
+
+        google.maps.event.addListener(marker,'dragend',function(event) {
+          lat_field.val(event.latLng.lat());
+          lon_field.val(event.latLng.lng());
+        });
+        
+        google.maps.event.addListener(map,'click',function(event) {
+          lat_field.val(event.latLng.lat());
+          lon_field.val(event.latLng.lng());
+          marker.setPosition(event.latLng);
+        });
+        
       
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          window.location.href = markers[i][3]; 
-        }
-      })(marker, i));
+      //listeners for 'spot' and 'country' modes
+      } else  {
+        google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+          return function() {
+            windowContent = "<span class=map-info-window>" + markers[i][0] + "</span>"
+            infowindow.setContent(windowContent);
+            infowindow.open(map, marker);
+            marker.setIcon(iconHover);
+          }
+        })(marker, i));
+        
+        google.maps.event.addListener(marker, 'mouseout', (function(marker, i) {
+          return function() {
+            infowindow.close(map, marker);
+            marker.setIcon(iconNormal);
+          }
+        })(marker, i));
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+            window.location.href = markers[i][3]; 
+          }
+        })(marker, i));
+      }
     }
   }
-  
+
 // Setting bounds (center and zoom)
 
   if (i > 1) {
     map.fitBounds(myBounds);
   }
-  else {
-    if (mode == "country") {
-      // change it so for 1 spot in spot view it shows good zoom
+  else { 
+    if (mode == "country" || mode =="new") {
+      // 'country' and 'new' modes
       var geocoder = new google.maps.Geocoder();
       geocoder.geocode( { 'address': gon.country}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           map.setCenter(results[0].geometry.location);
           map.fitBounds(results[0].geometry.viewport);
+          if (mode =="new") 
+            marker.setPosition(results[0].geometry.location);
         }
       });
     }
-    else if (mode == "spot") {
+    else {
+      // 'spot' and 'edit' modes
       map.setCenter(marker.getPosition());
       map.setZoom (15);
     }
@@ -159,3 +204,5 @@ function gmap_init() {
   }
 
 }
+
+google.maps.event.addDomListener(window, 'load', gmap_init);

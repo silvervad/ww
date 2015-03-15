@@ -1,15 +1,19 @@
 function toggleMap() {
-	var rama = document.getElementById("rama-canvas"), 
-		button = document.getElementById("map-toggle-button");
+	var rama = $("#rama-canvas"), 
+		button = $("#map-toggle-button");
+		
+	// can be slideToggle or fadeToggle
 
-	if (rama.style.visibility == "hidden") {
-		rama.style.visibility = "visible";
-		button.innerHTML="Map";
+	if (rama.is(":hidden")) {
+		button.html("Map");
 	}
 	else {
-		rama.style.visibility = "hidden";
-		button.innerHTML="Photos";
+		button.html("Photos");
 	}
+	
+	rama.toggle('slow');
+	
+	
 	/*if ( classie.has ( container, "menu-closed")) {
 		classie.remove (container, "menu-closed");
 	}

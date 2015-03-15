@@ -4,6 +4,6 @@
     - if @country.present? 
         a href="#" >
         li = link_to @country.name, country_path(@country)
-        - if @spot.present?
+        - if @spot.present? and action_name!='new'
           a href="#" >
           li = link_to @spot.name, country_spot_path

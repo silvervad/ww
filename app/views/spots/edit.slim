@@ -1,7 +1,16 @@
-h1 Editing spot
+// spots # edit
+//=====================
 
-= render 'form'
 
-=' link_to 'Show', [@country,@spot]
-' |
-= link_to 'Back', country_spots_path(@country)
+- title = @country.name + ' | ' + @spot.name
+- provide(:title, title)
+
+= render 'layouts/navi'
+
+#right-menu
+  = render 'form'
+
+
+
+#edit-spot-map-canvas
+
