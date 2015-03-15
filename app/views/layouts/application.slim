@@ -1,28 +1,29 @@
 doctype html
 html
-head
-  title
-    = full_title(yield(:title))
-  = stylesheet_link_tag "application", :media => "all"
+  head
+    title
+      = full_title(yield(:title))
+      
+    meta name="viewport" content="initial-scale=1.0, user-scalable=no"
+    = stylesheet_link_tag "application", :media => "all"
+  
+    = csrf_meta_tags
+    = render 'layouts/shim'
 
-  = csrf_meta_tags
-  = render 'layouts/shim'
-  = render 'layouts/gmaps'
-
-body
-  .container
-    = render 'layouts/header'
-
-    == yield
-    
-    = render 'layouts/footer'
-
-  = javascript_include_tag src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
-  = javascript_include_tag src="https://maps.googleapis.com/maps/api/js?v=3.exp"
-  = include_gon
-  = javascript_include_tag 'application'
-
-  = debug(params) if Rails.env.development?
+  body onload="initialize()"
+    #container
+      = render 'layouts/header'
+  
+      == yield
+      
+      = render 'layouts/footer'
+  
+    = javascript_include_tag src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+    = javascript_include_tag src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV0NXyd7BVaG6CuyzITjfsn2IIFsjedOk"
+    = include_gon
+    = javascript_include_tag 'application'
+  
+    //= debug(params) if Rails.env.development?
 
 
 

@@ -1,28 +1,27 @@
-- provide(:title, 'Spots')
-h1 Listing spots
+// spots # index
+//=====================
+
+- provide(:title, @country.name)
+
+= render 'layouts/navi'
+
+#spots-index
+  
+  .menu-title Spots in #{@country.name}
+  
+  ul
+    - @spots.each do |spot|
+      li = link_to spot.name, country_spot_path(@country, spot)
+    
+  
+  
+  br
+
+  = link_to 'New Spot', new_country_spot_path(@country)
+
 
 #map-canvas 
 
-table.table.table-striped.table-hover
-  thead
-    tr
-      th Name
-      th Latitude
-      th Longitude
-      th Sports
-      th colspan="3"
+//= simple_format @spots.to_yaml
+//= @markers.inspect
 
-  tbody
-    - @spots.each do |spot|
-      tr
-        td #{ spot.name }
-        td #{ spot.latitude }
-        td #{ spot.longitude }
-        td = render partial: "layouts/sport", collection: spot.sports
-        td = link_to 'Show', country_spot_path(@country, spot)
-        td = link_to 'Edit', edit_country_spot_path(@country, spot)
-        td = link_to 'Destroy', country_spot_path(@country, spot), method: :delete, data: { confirm: 'Are you sure?' }
-
-br
-
-= link_to 'New Spot', new_country_spot_path(@country)

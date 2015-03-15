@@ -24,6 +24,7 @@ Country.delete_all
 Country.create!(name: "Egypt", continent: Continent.find_by(name: 'Africa'))
 Country.create!(name: "Kenya", continent: Continent.find_by(name: 'Africa'))
 Country.create!(name: "Mauritius", continent: Continent.find_by(name: 'Africa'))
+Country.create!(name: "Dominican Republic", continent: Continent.find_by(name: 'North America'))
 
 Spot.delete_all
 Spot.create!(name: 'Soma Bay', latitude: 26.844535, longitude: 33.956664, 

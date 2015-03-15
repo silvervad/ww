@@ -1,0 +1,9 @@
+#navi-wrap
+  ul.navbar
+    li = link_to "World", root_path, id: "logo"
+    - if @country.present? 
+        a href="#" >
+        li = link_to @country.name, country_spots_path
+        - if @spot.present?
+          a href="#" >
+          li = link_to @spot.name, country_spot_path(@country,@spot)

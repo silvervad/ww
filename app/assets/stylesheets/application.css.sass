@@ -4,26 +4,43 @@
  */
 
 /*@import "bootstrap"
-@import compass
+//@import compass
 
-
+html
+  height: 100%
+  width: 100%
+  
 body
   background: #333333
+  //background: #383f47
   font-family: times, serif
-
-
-.container 
-  padding: 0px
-  position: relative
-  
-
-#logo
-  font-weight: bold
-	
-body
+  color: #ffffff
+  height: 100%
+  width: 100%
   margin: 0
   padding: 0
-	
+
+
+a:link
+  color: #00CCCC
+  text-decoration: none
+  font-weight: bold
+  
+a:visited
+  color: #00CCCC
+  
+a:hover
+  color: #00EEEE
+
+#container 
+  padding: 0px
+  position: relative
+  height: 100%
+  width: 100%
+  
+#rama-container
+
+
 .alert-notice
   position: absolute
   top: 10%
@@ -33,15 +50,31 @@ body
   background: #ccaaee
 
 #navi-wrap
-  position: absolute
+  position: relative
   top: 0px
   left: 0px
-  z-index: 100
-  padding: 3px
+  padding: 5px
+  padding-left: 10px
+  font-size: 110%
 
+ul.navbar
+  padding-left: 0
+  display: inline
+  li
+    display: inline
 
 .debug_dump
   position: relative
+  
+.menu-title
+  font-size: 20pt
+  padding: 3px
+  z-index: 100
+  cursor: pointer
+  right: 0px
+  
+.map-info-window
+  color: #000
 
 
 

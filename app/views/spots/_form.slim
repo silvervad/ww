@@ -30,7 +30,7 @@
         = sport.name
      
   .field 
-    = f.select :country_id, options_from_collection_for_select(Country.all, :id, :name)
+    = f.select :country_id, options_from_collection_for_select(Country.all, :id, :name, @country.id)
      // = country.name
 
   = render partial: "layouts/photos", locals: {f: f}
