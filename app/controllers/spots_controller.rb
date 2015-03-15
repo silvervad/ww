@@ -5,7 +5,7 @@ class SpotsController < ApplicationController
   # GET /spots
   # GET /spots.json
   def index
-    @spots = @country.spots
+    @spots = Spot.all
     @markers = @spots.map do |s|
       [ s.name, s.latitude, s.longitude, country_spot_url(@country, s) ]
     end
@@ -18,9 +18,9 @@ class SpotsController < ApplicationController
   def show
     @photos = @spot.photos.all
     @schools = @spot.schools.all
-    #@markers = [ @spot.name, @spot.latitude, @spot.longitude, country_spot_url(@country, @spot) ]
-    gon.markers = ""
-    #gon.country = @country.name
+    @markers = [ @spot.name, @spot.latitude, @spot.longitude, country_spot_url]
+    gon.markers = [[ @spot.name, @spot.latitude, @spot.longitude, country_spot_url]]
+    gon.country = @country.name
 
     if request.path != country_spot_path(@country, @spot)
       return redirect_to [@country, @spot], :status => :moved_permanently

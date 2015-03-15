@@ -1,9 +1,24 @@
 // countries # show
 //=====================
 
-p
+- provide(:title, @country.name)
+
+= render 'layouts/navi'
+
+#right-menu
+  
+  .menu-title Spots in #{@country.name}
+  
+  ul
+    - @spots.each do |spot|
+      li = link_to spot.name, country_spot_path(@country, spot)
+    
   br
-  - if @country.spots.any?
-    h3 Spots in #{@country.name} (#{@country.spots.count})
-    ul
-    = render partial: "spots/spot_short", collection: @country.spots
+
+  = link_to 'New Spot', new_country_spot_path(@country)
+
+
+#country-map-canvas 
+
+//= simple_format @spots.to_yaml
+//= @markers.inspect
