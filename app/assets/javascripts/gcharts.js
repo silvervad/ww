@@ -66,7 +66,10 @@ function drawCharts() {
     //var chart = new google.charts.Bar(document.getElementById('chart-div' + i.toString()));
     var chart = new google.visualization.ColumnChart(document.getElementById('chart-div' + i.toString()));
     //chart.draw(data[i], google.charts.Bar.convertOptions(options));
+
     chart.draw(data[i], options);
+    
+
   }
   
 
