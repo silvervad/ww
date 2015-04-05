@@ -49,7 +49,26 @@ function gmap_init() {
   spotMapOptions = {
     zoom: 1,
     styles: spotMapStyles,
-    mapTypeId: google.maps.MapTypeId.HYBRID
+    mapTypeId: google.maps.MapTypeId.HYBRID,
+    panControl: false,
+    scaleControl: true,
+    rotateControl: true,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+        style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+        position: google.maps.ControlPosition.BOTTOM_LEFT
+    },
+    zoomControl: true,
+    zoomControlOptions: {
+        style: google.maps.ZoomControlStyle.LARGE,
+        position: google.maps.ControlPosition.LEFT_BOTTOM
+    },
+
+    streetViewControl: true,
+    streetViewControlOptions: {
+        position: google.maps.ControlPosition.LEFT_BOTTOM
+    },
+    
   },
   
   markers = gon.markers,
@@ -168,11 +187,13 @@ function gmap_init() {
           }
         })(marker, i));
         
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-          return function() {
-            window.location.href = markers[i][3]; 
-          }
-        })(marker, i));
+        if (mode == 'country') {
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+              window.location.href = markers[i][3]; 
+            }
+          })(marker, i));
+        }
       }
     }
   }

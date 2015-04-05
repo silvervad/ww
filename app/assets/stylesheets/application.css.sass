@@ -6,15 +6,25 @@
 /*@import "bootstrap"
 //@import compass
 
+$bg_color: #333333
+$a_color: #AAAAAA
+$a_hover_color: #DDDDDD
+$font_color: #ffffff
+$map_info_font_color: black
+
+* 
+  box-sizing: border-box
+
+
 html
   height: 100%
   width: 100%
   
 body
-  background: #333333
+  background: $bg_color
   //background: #383f47
   font-family: times, serif
-  color: #ffffff
+  color: $font_color
   height: 100%
   width: 100%
   margin: 0
@@ -22,21 +32,31 @@ body
 
 
 a:link
-  color: #00CCCC
+  color: $a_color
   text-decoration: none
   font-weight: bold
   
 a:visited
-  color: #00CCCC
+  color: $a_color
   
 a:hover
-  color: #00EEEE
+  color: $a_hover_color
 
 #container 
   padding: 0px
   position: relative
   height: 100%
   width: 100%
+  background: inherit
+
+  
+  
+#canvas
+  padding: 0px
+  position: relative
+  height: 100%
+  width: 100%
+  background: inherit
 
 
 .alert-notice
@@ -49,10 +69,10 @@ a:hover
   z-index: 100
 
 #navi-wrap
-  position: relative
+  position: absolute
   top: 0px
   left: 0px
-  padding: 5px
+  padding: 4px
   padding-left: 10px
   font-size: 110%
 
@@ -65,59 +85,90 @@ ul.navbar
 .debug_dump
   position: relative
   
-.menu-title
-  font-size: 20pt
-  padding: 3px
-  right: 0px
-  
+
 .map-info-window
-  color: #000
+  color: $map_info_font_color
 
 #country-map-canvas 
-  height: 95%
+  height: 100%
   margin: 0
   padding: 0
 
 #spot-map-canvas 
-  height: 95%
+  height: 100%
   margin: 0
   padding: 0
   position: absolute
   z-index: 4
-  width: 80%
+  width: 100%
+  //border-radius: 5px
 
 #edit-spot-map-canvas 
-  height: 95%
+  height: 100%
   margin: 0
   padding: 0
   position: absolute
   z-index: 4
-  width: 80%
+  width: 100%
   
 #new-spot-map-canvas 
-  height: 95%
+  height: 100%
   margin: 0
   padding: 0
   position: absolute
   z-index: 4
-  width: 80%
+  width: 100%
   
 
 #rama-canvas
   z-index: 5
-  width: 80%
+  width: 100%
   position: absolute
-  background: #333333
+  background: inherit
+  //border-radius: 5px
+  
+
+// right menu
 
 #right-menu
-  width: 18%
-  float: right
+  width: 200px
+  background-color: rgba(51,51,51,0.5)
+  position: absolute
+  right: 0
+  z-index: 10
+  border-radius: 0 0 0 5px
+  transition: 0.7s
+
+.menu-title
+  position: absolute
+  display: inline
+  width: 200px
+  right: 0
+  top: 0
+  font-size: 27px
   padding-left: 10px
-  
+  z-index: 10
+  background-color: rgba(51,51,51,0.5)
+  transition: border-radius 0s
+
+
+.menu-title.closed
+  border-radius: 0 0 0 5px
+  transition: border-radius 0.25s 0.5s
+
+#menu-toggle-button
+  position: relative
+  float: right
+  top: 3px
+  right: 3px
+
+// buttons
+
 #map-toggle-button
-  cursor: pointer
-
-
-
+  position: absolute
+  top: 10px
+  left: 10px
+  z-index: 10
+  
 
 

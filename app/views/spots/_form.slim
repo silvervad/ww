@@ -2,36 +2,54 @@
   - if @spot.errors.any?
     #error_explanation
       h2
-        =' pluralize(@spot.errors.count, "error")
+        = pluralize(@spot.errors.count, "error")
         prohibited this spot from being saved:
 
       ul
       - @spot.errors.full_messages.each do |message| 
         li = message
 
-  .field
-    = f.label :name
-    br
-    = f.text_field :name
-  .field
-    = f.label :latitude
-    br
-    = f.text_field :latitude
+  = f.label :name
+  br
+  = f.text_field :name
 
-  .field
-    = f.label :longitude
-    br
-    = f.text_field :longitude
+  = f.label :latitude
+  br
+  = f.text_field :latitude
 
-  .field
-    - for sport in Sport.all
-      .field
-        = check_box_tag "spot[sport_ids][]", sport.id, @spot.sports.include?(sport)
-        = sport.name
-     
-  .field 
-    = f.select :country_id, options_from_collection_for_select(Country.all, :id, :name, @country.id)
-     // = country.name
+
+  = f.label :longitude
+  br
+  = f.text_field :longitude
+
+
+  = f.fields_for :seasons do |builder|
+    = builder.collection_select(:sport_id, Sport.all, :id, :name)
+    = builder.text_field :months
+    = builder.hidden_field :spot_id
+
+  //- @spot.seasons.each do |season| 
+    -if season.sport
+      = select_tag "spot[seasons_attributes][][sport_id]", options_from_collection_for_select(Sport.all, :id, :name, season.sport.id)
+    - else
+      = select_tag "spot[seasons_attributes][][sport_id]", options_from_collection_for_select(Sport.all, :id, :name)
+    = hidden_field_tag 'spot[seasons_attributes][][id]', season.id
+    = text_field_tag 'spot[seasons_attributes][][months]', season.months
+    
+
+  
+  //- Sport.all.each do |sport|
+    = check_box_tag "spot[sport_ids][]", sport.id, @spot.sports.include?(sport)
+    = sport.name
+    - season = @spot.seasons.where(sport: sport).first
+    - if season
+      = text_field_tag "spot[season_id][months]", season.months
+    - else
+      = text_field_tag "spot[season_id][months]"
+
+
+  = f.select :country_id, options_from_collection_for_select(Country.all, :id, :name, @country.id)
+   // = country.name
 
   = render partial: "layouts/photos", locals: {f: f}
   

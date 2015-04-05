@@ -5,8 +5,5 @@ class School < ActiveRecord::Base
 	validates :link,  presence: true
 	validates :spot_id,  presence: true
 	#validates :sports,  presence: true
-	validates :latitude,  presence: true
-	validates :longitude,  presence: true
-	validates :affiliation,  presence: true
 
 end

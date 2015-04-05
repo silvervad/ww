@@ -40,6 +40,11 @@ Spot.create!(name: 'Sharm el Sheikh, Nabq', latitude: 28.053572, longitude: 34.4
 Spot.create!(name: 'Marsa Alam - Blue Lagoon', latitude: 24.910606, longitude: 34.976907,
 	:sports => Sport.where(:name => ['Kitesurfing', 'Windsurfing']), country: Country.find_by(name: 'Egypt'))
 
+Season.delete_all
+Season.create!(:spot => Spot.find_by(name: 'Soma Bay'), :sport => Sport.find_by(name: "Kitesurfing"), months: "111111111111" )
+Season.create!(:spot => Spot.find_by(name: 'Soma Bay'), :sport => Sport.find_by(name: "Windsurfing"), months: "111111111111" )
+
+
 Photo.delete_all
 Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/1/1.jpg')), imageable_id: 1, imageable_type: 'Spot')
 Photo.create!(:image => open(File.join(Rails.root, 'public/uploads/photo/Spot/1/soma-bay-holiday-10.jpg')), imageable_id: 1, imageable_type: 'Spot')

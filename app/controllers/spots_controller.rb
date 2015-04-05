@@ -19,12 +19,15 @@ class SpotsController < ApplicationController
   def show
     @photos = @spot.photos.all
     @schools = @spot.schools.all
+    gon.seasons = []
+    @spot.seasons.each do |s|
+      gon.seasons[s.sport.id] = s.get_months_array
+    end
 
     if request.path != country_spot_path(@country, @spot)
       return redirect_to [@country, @spot], :status => :moved_permanently
     end
     
-    #@seasons = @spot.seasons.first.collection.split(',').collect!
   end
 
   # GET /spots/new
@@ -34,6 +37,7 @@ class SpotsController < ApplicationController
     @spot.latitude = 0
     @spot.longitude = 0
     @photos = @spot.photos.build
+    #@seasons = @spot.seasons.build
     
     # passing markers and country name to gmaps js api
     
@@ -45,7 +49,9 @@ class SpotsController < ApplicationController
   # GET /spots/1/edit
   def edit
     @photos = @spot.photos.all
-
+    if @spot.seasons.count < Sport.all.count 
+      @seasons = @spot.seasons.build
+    end
     #unless @photos.exists? 
      # @photos = Photo.create
     #end
@@ -73,7 +79,7 @@ class SpotsController < ApplicationController
   # PATCH/PUT /spots/1
   # PATCH/PUT /spots/1.json
   def update
-    params[:spot][:sport_ids] ||= [] 
+    #params[:spot][:season_ids] ||= [] 
     respond_to do |format|
       if @spot.update(spot_params)
         if params[:photos]
@@ -116,7 +122,7 @@ class SpotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def spot_params
-      params.require(:spot).permit(:name, :latitude, :longitude, :seasons, :country_id, {:sport_ids => []},
-        photos_attributes: [:id, :image, :imageable_id])
+      params.require(:spot).permit(:name, :latitude, :longitude,  :country_id, 
+        photos_attributes: [:id, :image, :imageable_id], seasons_attributes: [:id, :spot_id, :sport_id, :months])
     end
 end

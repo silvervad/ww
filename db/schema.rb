@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315200550) do
+ActiveRecord::Schema.define(version: 20150316195309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,14 +69,16 @@ ActiveRecord::Schema.define(version: 20150315200550) do
   add_index "schools", ["name"], name: "index_schools_on_name", using: :btree
   add_index "schools", ["spot_id"], name: "index_schools_on_spot_id", using: :btree
 
-  create_table "seasons", id: false, force: true do |t|
-    t.integer "spot_id"
-    t.integer "sport_id"
-    t.string  "season",   limit: 10
+  create_table "seasons", force: true do |t|
+    t.integer  "spot_id"
+    t.integer  "sport_id"
+    t.string   "months",     limit: 12
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   add_index "seasons", ["sport_id"], name: "index_seasons_on_sport_id", using: :btree
-  add_index "seasons", ["spot_id", "sport_id"], name: "index_seasons_on_spot_id_and_sport_id", unique: true, using: :btree
+  add_index "seasons", ["spot_id", "sport_id"], name: "index_seasons_on_spot_id_and_sport_id", using: :btree
   add_index "seasons", ["spot_id"], name: "index_seasons_on_spot_id", using: :btree
 
   create_table "sports", force: true do |t|

@@ -7,44 +7,44 @@
 
 = render 'layouts/navi'
 
-#right-menu
+#menu-title.menu-title
+  #menu-toggle-button.navicon-button.x.menu-open
+    .navicon
+  = @spot.name
 
-  button#map-toggle-button onclick="toggleMap()" Map
-  
-  .menu-title 
-    = @spot.name
 
-  p.spot_info
-    h3 Sports:
-    ul = render partial: "layouts/sport", collection: @spot.sports
-  
-  
-    h3 Seasons:
-    - 12.times do |t| 
-   	  /= @spot.seasons.find(1).get_months[t] if @spot.seasons.any?
-  	  /= @spot.seasons.find(1).get_seasons[t] if @spot.seasons.any?
-  	
-    /  #chartContainer FusionCharts XT will load here!
-  	
-    /*- if @spot.schools.any?
-      h3 Schools (#{@spot.schools.count})
-      ul.schools
-        = render partial: "schools/school_short", collection: @schools
+#right-menu.nano
+
+  .nano-content
       
+    ul.sports = render partial: "layouts/season", collection: @spot.seasons
+    
+    h3 Schools
+    
+    ul.schools = render partial: "layouts/school_short", collection: @spot.schools
+    
+  
     = link_to 'Edit', edit_country_spot_path(@country, @spot) 
-    ' |
+    '  | 
     = link_to 'Back', country_path(@country)
-    ' | 
+    '  | 
     = link_to 'Destroy', country_spot_path, method: :delete, data: { confirm: 'Are you sure?' }
+    
+    br
+    br
 
-#rama-canvas
-  #fotorama.fotorama data-navposition="bottom" data-nav="thumbs" data-height="94%" data-width="100%" data-fit="cover" data-thumbwidth="120" data-thumbheight="90" data-allowfullscreen="true" data-hash="true" data-keyboard="true"
-    - @photos.each do |img|
-      = image_tag img.image_url
-      
-#spot-map-canvas
+  
+#canvas.photos
 
+  #rama-canvas
+    #fotorama.fotorama data-arrows="false" data-navposition="bottom" data-nav="thumbs" data-height="100%" data-width="100%" data-fit="cover" data-thumbwidth="100" data-thumbheight="75" data-hash="true" data-keyboard="true"
+      - @photos.each do |img|
+        = image_tag img.image_url
+  
+  #spot-map-canvas
+  
+  #map-toggle-button.button onclick="toggleMap()" Map
 
-        	  
+	  
 
 
