@@ -36,23 +36,35 @@
   padding: 2px;
   width: 25px;
   height: 25px;
-  transition: 0.25s;
   cursor: pointer;
   user-select: none;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
 }
 
 .navicon-button .navicon:before, .navicon-button .navicon:after {
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
   transition: 0.25s;
 }
 
 .navicon-button:hover {
-  transition: .25s;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
 }
 
 
 .navicon-button:hover .navicon, .navicon-button:hover .navicon:before, .navicon-button:hover .navicon:after {
   background-color: rgba(255,255,255,1);
-  transition: .25s;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
 }
 
 .navicon {
@@ -64,8 +76,11 @@
   top: 9px;
   background: #E7E6DD;
   border-radius: 5px;
-  transition: 0.5s;
   background-color: rgba(255,255,255,0.8);
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .navicon:before, .navicon:after {
@@ -76,8 +91,11 @@
   left: 0;
   background: #E7E6DD;
   border-radius: 5px;
-  transition: 0.5s 0.25s;
   background-color: rgba(255,255,255,0.8);
+  -webkit-transition: 0.5s 0.25s;
+  -moz-transition: 0.5s 0.25s;
+  -o-transition: 0.5s 0.25s;
+  transition: 0.5s 0.25s;
 }
 .navicon:before {
   top: 6px;
@@ -93,6 +111,9 @@
 
 .menu-open .navicon:before,
 .menu-open .navicon:after {
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
   transition: 0.5s;
 }
 
@@ -102,9 +123,17 @@
 }
 
 .menu-open.x .navicon:before {
+  -moz-transform: rotate(-45deg); /* Firefox */
+  -ms-transform: rotate(-45deg); /* IE */
+  -webkit-transform: rotate(-45deg); /* Safari, Chrome, iOS */
+  -o-transform: rotate(-45deg); /* Opera */
   transform: rotate(-45deg);
 }
 
 .menu-open.x .navicon:after {
+  -moz-transform: rotate(45deg); /* Firefox */
+  -ms-transform: rotate(45deg); /* IE */
+  -webkit-transform: rotate(45deg); /* Safari, Chrome, iOS */
+  -o-transform: rotate(45deg); /* Opera */
   transform: rotate(45deg);
 }
