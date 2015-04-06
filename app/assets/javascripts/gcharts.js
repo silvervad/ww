@@ -57,18 +57,22 @@ function drawCharts() {
   
 
   for (i = 1; i < gon.seasons.length; i++) {
-
-    data[i]=google.visualization.arrayToDataTable(gon.seasons[i]);
-    //var div_name = 'chart_div' + i.toString();
-    //console.log (div_name, i, gon.seasons.length);
-  
-      // Instantiate and draw our chart, passing in some options.
-    //var chart = new google.charts.Bar(document.getElementById('chart-div' + i.toString()));
-    var chart = new google.visualization.ColumnChart(document.getElementById('chart-div' + i.toString()));
-    //chart.draw(data[i], google.charts.Bar.convertOptions(options));
-
-    chart.draw(data[i], options);
     
+    // draw only for existing sports
+    
+    if (gon.seasons[i]) {
+  
+      data[i]=google.visualization.arrayToDataTable(gon.seasons[i]);
+      //var div_name = 'chart_div' + i.toString();
+      //console.log (div_name, i, gon.seasons.length);
+    
+        // Instantiate and draw our chart, passing in some options.
+      //var chart = new google.charts.Bar(document.getElementById('chart-div' + i.toString()));
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart-div' + i.toString()));
+      //chart.draw(data[i], google.charts.Bar.convertOptions(options));
+  
+      chart.draw(data[i], options);
+    }
 
   }
   

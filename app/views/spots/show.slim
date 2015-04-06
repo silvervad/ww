@@ -17,7 +17,7 @@
 
   .nano-content
       
-    ul.sports = render partial: "layouts/season", collection: @spot.seasons
+    ul.sports = render partial: "layouts/season", collection: @spot.seasons.order('sport_id')
     
     h3 Schools
     

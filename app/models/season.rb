@@ -2,6 +2,7 @@ class Season < ActiveRecord::Base
   belongs_to :spot
   belongs_to :sport
   
+  
   def get_months_array
     
     month_names = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 

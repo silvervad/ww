@@ -24,6 +24,7 @@ class SpotsController < ApplicationController
       gon.seasons[s.sport.id] = s.get_months_array
     end
 
+
     if request.path != country_spot_path(@country, @spot)
       return redirect_to [@country, @spot], :status => :moved_permanently
     end
