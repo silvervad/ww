@@ -40,7 +40,7 @@ function drawCharts() {
     hAxis: {
       textStyle: {
         fontSize: 8,
-        color: $(".sports").css("color")
+        color: $("ul").css("color")
       },
 
     },

@@ -9,7 +9,7 @@
 $bg_color: #333333
 $bg_transparent: rgba(51,51,51,0.5)
 $a_color: #DDDDDD
-$a_hover_color: #EEEEEE
+$a_hover_color: #ffffff
 $font_color: #ffffff
 $map_info_font_color: black
 
@@ -23,8 +23,7 @@ html
   
 body
   background: $bg_color
-  //background: #383f47
-  font-family: times, serif
+  font-family: candara
   color: $font_color
   height: 100%
   width: 100%
@@ -35,13 +34,21 @@ body
 a:link
   color: $a_color
   text-decoration: none
-  font-weight: bold
+  border-bottom: 1px dotted $a_color
+  
+  display: inline
+  //font-weight: bold
   
 a:visited
   color: $a_color
   
 a:hover
   color: $a_hover_color
+  border-bottom: 1px solid $a_color
+  
+  
+a:active
+  padding-top: 2px
 
 #container 
   padding: 0px
@@ -50,56 +57,18 @@ a:hover
   width: 100%
   background: inherit
 
-  
-  
+////////////////////////////////
+// canvases  
+
 #canvas
   padding: 0px
-  position: relative
+  position: absolute
+  top: 0
+  left: 0
   height: 100%
   width: 100%
   background: inherit
-
-
-.alert
-  position: absolute
-  top: 10px
-  left: 100px
-  background: $bg_transparent
-  z-index: 100
-  border-radius: 5px
-  padding: 5px 10px
-  border: none
-  text-align: center
-  font: 12px arial
-  color: #DDDDDD
-  white-space: nowrap
-  border-radius: 6px
-  /* IE hacks */
-  zoom: 1
-  *display: inline
   
-
-#navi-wrap
-  position: absolute
-  top: 0px
-  left: 0px
-  padding: 4px
-  padding-left: 10px
-  font-size: 110%
-
-ul.navbar
-  padding-left: 0
-  display: inline
-  li
-    display: inline
-
-.debug_dump
-  position: relative
-  
-
-.map-info-window
-  color: $map_info_font_color
-
 #country-map-canvas 
   height: 100%
   margin: 0
@@ -112,7 +81,6 @@ ul.navbar
   position: absolute
   z-index: 4
   width: 100%
-  //border-radius: 5px
 
 #edit-spot-map-canvas 
   height: 100%
@@ -130,59 +98,121 @@ ul.navbar
   z-index: 4
   width: 100%
   
-
 #rama-canvas
   z-index: 5
   width: 100%
   position: absolute
   background: inherit
-  //border-radius: 5px
+
+.alert
+  position: absolute
+  top: 10px
+  left: 100px
+  background: $bg_transparent
+  z-index: 100
+  border-radius: 5px
+  padding: 5px 10px
+  border: none
+  text-align: center
+  color: #DDDDDD
+  white-space: nowrap
+  border-radius: 6px
+  /* IE hacks */
+  zoom: 1
+  *display: inline
   
 
-// right menu
+ul.navbar
+  padding-left: 0
+  display: inline
+  li
+    display: inline
 
-#right-menu
-  width: 200px
-  background-color: rgba(51,51,51,0.5)
-  position: absolute
-  right: 0
+.debug_dump
+  position: relative
+  
+
+.map-info-window
+  color: $map_info_font_color
+
+//nav bar
+
+#nav-bar
+  position: relative
+  top: 0
+  margin-left: auto
+  margin-right: 0
+  min-height: 49px
+
+.nav-bar
+  width: 100%
+  font-size: 140%
+  padding: 2px 0px
+  cursor: pointer
   z-index: 10
+  background-color: rgba(51,51,51,0.5)
+  transition: 0.7s
+
+.nav-bar.nav-closed
+  width: 210px
+  transition: 0.7s
+
+.nav-bar.nav-closed.info-closed
+  border-radius: 0 0 0 5px
+
+#nav-text
+  font-family: candara
+  padding-top: 3px
+  padding-left: 5px
+  display: block
+  font-weight: bold
+  color: $a_color
+
+#nav-text.nav-closed
+  display: none
+
+// info bar
+
+#info-bar
+  position: relative
+  width: 210px
+  background-color: rgba(51,51,51,0.5)
+  z-index: 10
+  margin-left: auto
+  margin-right: 0
+  top: 0
   border-radius: 0 0 0 5px
   transition: 0.7s
-  border-style:none
-  outline-style:none
-
-
-.menu-title
-  position: absolute
-  display: inline
-  width: 200px
-  right: 0
-  top: 0
-  font-size: 27px
-  padding-left: 10px
-  z-index: 10
-  background-color: rgba(51,51,51,0.5)
-  transition: border-radius 0s
-
-
-.menu-title.closed
-  border-radius: 0 0 0 5px
-  transition: border-radius 0.25s 0.5s
-
-#menu-toggle-button
-  position: relative
-  float: right
-  top: 3px
-  right: 3px
 
 // buttons
 
-#map-toggle-button
-  position: absolute
-  top: 10px
-  left: 10px
+/*button-toggle-menu
+  position: relative
+  float: right
+
+#button-toggle-map
+  position: relative
   z-index: 10
+  float: right
+
+#button-home
+  position: relative
+  z-index: 10
+  float: right
   
+#button-country
+  position: relative
+  z-index: 10
+  float: right
+  
+#button-toggle-info
+  position: relative
+  z-index: 10
+  float: right
+  
+#button-toggle-nav
+  position: relative
+  z-index: 10
+  float: right
 
 

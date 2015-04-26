@@ -3,12 +3,9 @@
 
 - provide(:title, @country.name)
 
-= render 'layouts/navi'
-
-
-#right-menu
+#info-bar
   
-  .menu-title Spots in #{@country.name}
+  .nav-bar Spots in #{@country.name}
   
   ul
     - @spots.each do |spot|

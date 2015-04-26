@@ -19,6 +19,7 @@ gem 'pg', '0.17.1'
 gem 'will_paginate', '~> 3.0.7'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'carrierwave'
+gem 'rmagick'
 gem 'compass'
 gem 'compass-rails'
 gem "slim-rails"

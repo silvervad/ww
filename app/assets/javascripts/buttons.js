@@ -1,86 +1,204 @@
 var
-	map_toggle_button = document.getElementById('map-toggle-button'), 
 	rama = $('#rama-canvas'),
 	thumb_height = 79,
 	google_terms_height = 13;
 	canvas = document.getElementById( 'canvas' ),
-	menu_title = document.getElementById('menu-title'),
-	menu_title_height = menu_title.clientHeight,
-	menu_toggle_button = document.getElementById('menu-toggle-button');
+	nav_bar = document.getElementById('nav-bar'),
+	button_toggle_map = document.getElementById('button-toggle-map'),
+	button_toggle_info = document.getElementById('button-toggle-info'),
+	button_toggle_nav = document.getElementById('button-toggle-nav')
+	nav_text = document.getElementById('nav-text'),
+	info_bar = document.getElementById('info-bar'),
+	transitionEnd = transitionEndEventName();
 
+function isMapClosed() {
+	if (rama.is(":visible")) {
+		console.log('map closed');
+		return true;
+	}
+	else {
+		console.log('map opened');
+		return false;
+	}
+}
 
-function ScaleMenu() {
+function closeMap() {
+		classie.remove (button_toggle_map, "icon-image");
+		classie.add (button_toggle_map, "icon-compass2");
+		classie.add (canvas, "photos");
+		button_toggle_map.title = "Map";
+}
+
+function openMap() {
+		classie.remove (button_toggle_map, "icon-compass2")
+		classie.add (button_toggle_map, "icon-image");
+		classie.remove (canvas, "photos");
+		button_toggle_map.title = "Photos";
+}
+
+function toggleMap() {
+	if (isMapClosed()) {
+		openMap();
+		console.log('openMap');
+	}
+	else {
+		closeMap();
+		console.log('closeMap');
+	}
+	
+	rama.toggle('slow');
+	scaleInfo();
+}
+
+// info-bar
+/////////////////
+
+function isInfoClosed () {
+	if (classie.has(nav_bar, 'info-closed')) {
+		console.log('info-closed');
+		return true;
+	}
+	else {
+		console.log('info-opened');
+		return false;
+	}
+}
+
+function closeInfo() {
+		classie.remove(nav_bar, 'info-opened');
+		classie.add(nav_bar, 'info-closed');
+		button_toggle_info.title = "Close Info";
+	  classie.remove (button_toggle_info, "icon-circle-up");
+		classie.add (button_toggle_info, "icon-circle-down");
+		console.log('closeInfo');
+}
+
+function openInfo() {
+		classie.remove(nav_bar, 'info-closed');
+		classie.add(nav_bar, 'info-opened');
+	  button_toggle_info.title = "Open Info";
+	  classie.remove (button_toggle_info, "icon-circle-down");
+		classie.add (button_toggle_info, "icon-circle-up");
+		console.log('openInfo');
+}
+
+function toggleInfo() {
+	if (isInfoClosed()) {
+		openInfo();
+	} 
+	else {
+		closeInfo();
+	}
+	
+	scaleInfo();
+}
+
+function scaleInfo() {
 	var 
-		right_menu = $('#right-menu'),
+		info_bar = $('#info-bar'),
 		bodyWidth = document.body.clientWidth,
-  	bodyHeight = document.body.clientHeight;
+  	bodyHeight = document.body.clientHeight,
+  	nav_bar_height = nav_bar.clientHeight;
 
-	// set the top of menu
-	right_menu.css('top', menu_title_height);
+	// set the top of menu (deprecated)
+	//info_bar.css('top', nav_bar_height+10);
 	
 	// if menu is closed
-	if (classie.has(right_menu[0], 'closed')) {
+	if (isInfoClosed()) {
 		// set zero menu height
-		right_menu.height(0);
+		info_bar.height(0);
 	}
 	// if menu is opened and photos are opened
 	else if (classie.has( canvas, 'photos' )) {
 		// set menu height for photos canvas
-  	right_menu.height(bodyHeight - thumb_height - menu_title_height);
+  	info_bar.height(bodyHeight - thumb_height - nav_bar_height);
 	}
 	// if menu is opened and map is opened
 	else {
 		// set menu height for map canvas
-		right_menu.height(bodyHeight - google_terms_height - menu_title_height);
+		info_bar.height(bodyHeight - google_terms_height - nav_bar_height);
 	}
 	// when the animation is over - refresh the scrollbar (dependent on height of menu)
-	setTimeout(function() {right_menu.nanoScroller()}, 600);
+	setTimeout(function() {info_bar.nanoScroller()}, 600);
+	
+	console.log('scale_menu');
 }	  
 	 
-function toggleMap() {
-	// can be slideToggle or fadeToggle
+// nav-bar
+//////////////////////
 
-	if (rama.is(":hidden")) {
-		map_toggle_button.innerHTML="Map";
-		classie.add (canvas, "photos");
+function isNavClosed() {
+	if (classie.has(nav_bar, 'nav-closed')) {
+		console.log('nav_closed');
+		return true;
 	}
 	else {
-		map_toggle_button.innerHTML="Photos";
-		classie.remove (canvas, "photos");
+		console.log('nav_opened');
+		return false;
 	}
-	
-	rama.toggle('slow');
-	ScaleMenu();
+}	 
+
+function closeNav() {
+		classie.add(nav_bar, 'nav-closed');
+	  button_toggle_nav.title = "Open Navigation";
+		classie.remove (button_toggle_nav, "icon-circle-right");
+		classie.add (button_toggle_nav, "icon-circle-left");
+	  setTimeout(function() {classie.add(nav_text, 'nav-closed')}, 100);
+	  console.log('closeNav');
 }
 
-function toggleMenu() {
-	var 
-		right_menu = document.getElementById('right-menu');
-		
-	// if right_menu is closed
-	if (classie.has(right_menu, 'closed')) {
-	  classie.remove(right_menu, 'closed');
-		classie.remove(menu_title, 'closed');
-	  classie.add(menu_toggle_button, 'menu-open');
-	} 
-	// if right_menu is open
+function openNav() {
+		classie.remove(nav_bar, 'nav-closed');
+		button_toggle_nav.title = "Close Navigation";
+		classie.remove (button_toggle_nav, "icon-circle-left");
+		classie.add (button_toggle_nav, "icon-circle-right");
+		setTimeout(function() {classie.remove(nav_text, 'nav-closed')}, 400);
+		console.log('openNav');
+}
+
+function toggleNav() {
+	if (isNavClosed()) {
+		openNav();
+	}
 	else {
-	  classie.add(right_menu, 'closed');
-	  classie.add(menu_title, 'closed');
-	  classie.remove(menu_toggle_button, 'menu-open');
+		closeNav();
 	}
-	
-	ScaleMenu();
+}
+
+// auxillary to decect end of transition event
+
+function transitionEndEventName () {
+    var i,
+        undefined,
+        el = document.createElement('div'),
+        transitions = {
+            'transition':'transitionend',
+            'OTransition':'otransitionend',  // oTransitionEnd in very old Opera
+            'MozTransition':'transitionend',
+            'WebkitTransition':'webkitTransitionEnd'
+        };
+
+    for (i in transitions) {
+        if (transitions.hasOwnProperty(i) && el.style[i] !== undefined) {
+            return transitions[i];
+        }
+    }
+
+    //TODO: throw 'TransitionEnd event is not supported in this browser'; 
 }
 
 
-$(window).bind("load", ScaleMenu);
-$(window).bind("resize", ScaleMenu);
-$(window).bind("orientationchange", ScaleMenu);
+// bindings 
+//////////////////
 
-map_toggle_button.onclick = toggleMap;
-menu_toggle_button.onclick = toggleMenu;
+$(window).bind("load", scaleInfo);
+$(window).bind("resize", scaleInfo);
+$(window).bind("orientationchange", scaleInfo);
 
+button_toggle_map.onclick = toggleMap;
+button_toggle_nav.onclick = toggleNav;
+
+nav_bar.addEventListener(transitionEnd, scaleInfo, false);
 
 
 
