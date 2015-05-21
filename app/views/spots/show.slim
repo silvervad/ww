@@ -8,7 +8,7 @@
 
 //#button-home.button.icon-earth
 
-#nav-bar.nav-bar
+#nav-bar.nav-bar.no-select
   = link_to root_path
     #button-home.button-no-bg.icon-home title="Home"
     
@@ -23,8 +23,8 @@
   
   #button-toggle-nav.button-no-bg.icon-circle-right title="Close Navigation"
 
-  #nav-text
-    = @spot.name
+  #nav-text.no-select
+    =@spot.name
     .country-name = link_to @spot.country.name, @country
     
 

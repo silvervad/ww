@@ -184,7 +184,6 @@ function transitionEndEventName () {
         }
     }
 
-    //TODO: throw 'TransitionEnd event is not supported in this browser'; 
 }
 
 
