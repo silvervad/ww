@@ -64,6 +64,7 @@ group :test do
   #gem 'factory_girl_rails', '~> 4.4.1'
   #gem 'cucumber-rails', '1.4.0', :require => false
   #gem 'database_cleaner', github: 'bmabey/database_cleaner'
+  gem 'minitest-reporters'
 end
 
 # Use unicorn as the app server

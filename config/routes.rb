@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   
+  get 'users/new'
+
   #get 'users/new'
 
   #root  'static_pages#home'
   root 'countries#index'
   
   #match '/signup',  to: 'users#new',            via: 'get'
+  get '/signup' => 'users#new'
 
 
   #resources :schools

@@ -23,6 +23,6 @@ module Ww
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
     # sass is default
-    config.sass.preferred_syntax = :sass
+    config.sass.preferred_syntax = :scss
   end
 end
