@@ -181,7 +181,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt (~> 3.1.7)
+  bcrypt
   bootstrap-will_paginate (~> 0.0.10)
   carrierwave
   coffee-rails (~> 4.0.0)
