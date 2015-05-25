@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   #match '/signup',  to: 'users#new',            via: 'get'
   get '/signup' => 'users#new'
 
-
+  resources :users
   #resources :schools
 
   #resources :spots, path: '', only: [ :show, :edit, :update, :destroy, :new, :create ]
-  resources :spots, only: [ :index ]
+  # resources :spots, only: [ :index ]
   
   resources :countries, path: '', only: [ :show, :new ] do 
     resources :spots, path: '', except: [ :index ]
