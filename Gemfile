@@ -4,6 +4,7 @@ ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
+# gem 'rails', '4.2.0'
 
 
 
@@ -25,6 +26,7 @@ gem 'compass-rails'
 gem "slim-rails"
 gem 'sass-rails'
 gem 'friendly_id'
+# gem 'nokogiri', '1.6.6.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -45,6 +47,8 @@ gem 'gon'
 group :development, :test do
   gem 'sqlite3'
   gem 'seed_dump'
+  gem 'byebug',      '3.4.0'
+  gem 'web-console', '~> 2.0'
   #gem 'rspec-rails', '~> 3.0.2'
   #gem 'guard-rspec', '~> 4.3.1'
   #gem 'spring-commands-rspec', '~> 1.0.2'

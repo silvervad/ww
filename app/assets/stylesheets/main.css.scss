@@ -9,7 +9,9 @@ $font_color: white;
 $map_info_font_color: black;
 
 * {
-  box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
 }
 
 .no-select {
@@ -35,6 +37,31 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
+}
+
+// Forms and alerts
+////////////////
+
+.alert {
+  position: absolute;
+  top: 10px;
+  left: 100px;
+  background: $bg_transparent;
+  z-index: 100;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: none;
+  text-align: center;
+  color: #dddddd;
+  white-space: nowrap;
+  border-radius: 6px;
+  /* IE hacks */
+  zoom: 1;
+  *display: inline;
+}
+
+.field_with_errors {
+  color: #FF0000;
 }
 
 a:link {
@@ -117,24 +144,6 @@ a:active {
   width: 100%;
   position: absolute;
   background: inherit;
-}
-
-.alert {
-  position: absolute;
-  top: 10px;
-  left: 100px;
-  background: $bg_transparent;
-  z-index: 100;
-  border-radius: 5px;
-  padding: 5px 10px;
-  border: none;
-  text-align: center;
-  color: #dddddd;
-  white-space: nowrap;
-  border-radius: 6px;
-  /* IE hacks */
-  zoom: 1;
-  *display: inline;
 }
 
 ul.navbar {
