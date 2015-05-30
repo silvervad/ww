@@ -1,9 +1,15 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
+  # test "should get new" do
+  #   get :new
+  #   assert_response :success
+  # end
 
+  test "should NOT get new" do
+    assert_raises ActionController::UrlGenerationError do
+      get :new
+    end
+  end
+  
 end

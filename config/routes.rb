@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
   
-  get 'users/new'
-
-  #get 'users/new'
-
   #root  'static_pages#home'
   root 'countries#index'
   
   #match '/signup',  to: 'users#new',            via: 'get'
-  get '/signup' => 'users#new'
+  #get '/signup' => 'users#new'
+  
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
 
-  resources :users
+  #resources :users
   #resources :schools
 
   #resources :spots, path: '', only: [ :show, :edit, :update, :destroy, :new, :create ]

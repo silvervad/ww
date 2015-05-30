@@ -1,9 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  continent_id: 
+egypt:
+  name: Egypt
 
-two:
-  name: MyString
-  continent_id: 
