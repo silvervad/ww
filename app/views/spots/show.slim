@@ -50,11 +50,11 @@
     ul.schools = render partial: "layouts/school_short", collection: @spot.schools
     
   
-    = link_to 'Edit', edit_country_spot_path(@country, @spot) 
-    '  | 
-    = link_to 'Back', country_path(@country)
-    '  | 
-    = link_to 'Destroy', country_spot_path, method: :delete, data: { confirm: 'Are you sure?' }
+    -if logged_in? 
+      = link_to 'Edit', edit_country_spot_path(@country, @spot) 
+      '  | 
+      = link_to 'Destroy', country_spot_path, method: :delete, data: { confirm: 'Are you sure?' }
+    
     
     br
     br
