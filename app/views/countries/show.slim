@@ -13,7 +13,8 @@
     
   br
 
-  = link_to 'New Spot', new_country_spot_path(@country)
+  -if logged_in?
+    =link_to 'New Spot', new_country_spot_path(@country)
 
 
 #country-map-canvas 

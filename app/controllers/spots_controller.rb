@@ -2,6 +2,8 @@ class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
   before_action :set_country
   before_action :set_spot_marker, only: [ :show, :edit ]
+  before_action :require_login, only: [ :edit, :update, :destroy ]
+  before_action :require_login_for_new, only: [ :new, :create ]
 
   # GET /spots
   # GET /spots.json
@@ -80,7 +82,6 @@ class SpotsController < ApplicationController
   # PATCH/PUT /spots/1
   # PATCH/PUT /spots/1.json
   def update
-    #params[:spot][:season_ids] ||= [] 
     respond_to do |format|
       if @spot.update(spot_params)
         if params[:photos]
@@ -99,11 +100,15 @@ class SpotsController < ApplicationController
   # DELETE /spots/1
   # DELETE /spots/1.json
   def destroy
-    @spot.destroy
-    respond_to do |format|
-      format.html { redirect_to country_path(@country), notice: 'Spot was successfully destroyed.' }
+    if logged_in? {
+      @spot.destroy
+      respond_to do |format|
+        format.html { redirect_to country_path(@country), notice: 'Spot was successfully destroyed.' }
+      end
+    }
+    else
+      redirect_to root_path
     end
-    
   end
 
   private
@@ -126,4 +131,19 @@ class SpotsController < ApplicationController
       params.require(:spot).permit(:name, :latitude, :longitude,  :country_id, 
         photos_attributes: [:id, :image, :imageable_id], seasons_attributes: [:id, :spot_id, :sport_id, :months])
     end
+    
+    def require_login
+      unless logged_in?
+        # flash[:error] = "You must be logged in to access this section"
+        redirect_to country_spot_path( @country, @spot )
+      end
+    end
+    
+    def require_login_for_new
+      unless logged_in?
+        # flash[:error] = "You must be logged in to access this section"
+        redirect_to root_path
+      end
+    end
+    
 end
