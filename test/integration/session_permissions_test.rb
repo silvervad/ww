@@ -7,7 +7,11 @@ class SessionPermissionsTest < ActionDispatch::IntegrationTest
     @spot = spots(:somabay)
   end
   
- # Should redirect back to spot if trying to edit without login
+  
+  # SPOTS
+  ##################################3
+  
+  # Should redirect back to spot if trying to edit without login
   test "can NOT access Spot.edit without login" do
     get edit_country_spot_path(@country, @spot)
     assert_redirected_to country_spot_path(@country, @spot)
@@ -37,5 +41,5 @@ class SessionPermissionsTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
   
- 
+  
 end

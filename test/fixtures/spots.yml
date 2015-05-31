@@ -1,3 +1,11 @@
 somabay:
   name: Soma Bay
   country: egypt
+  
+elgouna:
+  name: El Gouna
+  country: egypt
+  
+marsa:
+  name: Marsa Alam
+  country: egypt
