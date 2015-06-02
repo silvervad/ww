@@ -1,9 +1,24 @@
 require 'test_helper'
 
 class SpotsControllerTest < ActionController::TestCase
-  # test "should get show" do
-  #   get :index
-  #   assert_response :success
-  # end
+  
+  def setup
+    @country = countries(:egypt)
+    @spot = spots(:somabay)
+  end
+  
+  # Spots.index should not respond
+  test "should not respond to Spot.index" do
+    assert_raises ActionController::UrlGenerationError do
+      get :index
+    end
+  end
+  
+  # Spot.create
+  
+  # Spot.new
+  
+  # Spot.update
+  
 
 end

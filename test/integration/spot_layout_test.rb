@@ -13,6 +13,7 @@ class SpotLayoutTest < ActionDispatch::IntegrationTest
   test "logged in user name" do
     @user = users(:pupkin)
     get login_path
+    assert_response :success
     post login_path, session: { email: @user.email, password: 'password' }
     assert is_logged_in?
     get country_spot_path(@country, @spot)

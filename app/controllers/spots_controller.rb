@@ -7,14 +7,14 @@ class SpotsController < ApplicationController
 
   # GET /spots
   # GET /spots.json
-  def index
-    @spots = Spot.all
-    @markers = @spots.map do |s|
-      [ s.name, s.latitude, s.longitude, country_spot_url(@country, s) ]
-    end
-    gon.markers = @markers
-    gon.country = @country.name
-  end
+  # def index
+  #   @spots = Spot.all
+  #   @markers = @spots.map do |s|
+  #     [ s.name, s.latitude, s.longitude, country_spot_url(@country, s) ]
+  #   end
+  #   gon.markers = @markers
+  #   gon.country = @country.name
+  # end
 
   # GET /spots/1
   # GET /spots/1.json
@@ -100,16 +100,11 @@ class SpotsController < ApplicationController
   # DELETE /spots/1
   # DELETE /spots/1.json
   def destroy
-    if logged_in? {
-      @spot.destroy
-      respond_to do |format|
-        format.html { redirect_to country_path(@country), notice: 'Spot was successfully destroyed.' }
-      end
-    }
-    else
-      redirect_to root_path
-    end
+    @spot.destroy
+    redirect_to country_path(@country), notice: 'Spot was successfully destroyed.'
   end
+
+### Private methods
 
   private
     # Use callbacks to share common setup or constraints between actions.

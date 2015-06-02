@@ -41,5 +41,15 @@ class SessionPermissionsTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
   
+    # Should be able to Spot.destroy when logged in
+  test "should be able to destroy spot when logged in" do
+    @user = users(:pupkin)
+    post login_path, session: { email: @user.email, password: 'password' }
+    assert_difference "Spot.count", -1 do
+      delete country_spot_path( @country, @spot )
+    end
+    assert_redirected_to country_path( @country )
+  end 
+  
   
 end
