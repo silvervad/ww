@@ -1,9 +1,9 @@
 //google.load('visualization', '1.0', {'packages':['corechart']});
   
 // Set a callback to run when the Google Visualization API is loaded.
-google.setOnLoadCallback(drawCharts);
+//google.setOnLoadCallback(drawCharts);
 
-function drawCharts() {
+(function drawCharts() {
   
   // Set chart options
   var options = {
@@ -78,4 +78,4 @@ function drawCharts() {
   
 
     
-}
+})();

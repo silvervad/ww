@@ -18,8 +18,8 @@
   = link_to @country
     #button-country.button-no-bg.icon-undo2 title="To Country"
   
-  #button-toggle-map.button-no-bg.icon-compass2 onclick="toggleMap()" title="Map"
-  #button-toggle-info.button-no-bg.icon-circle-up onclick="toggleInfo()" title="Close Info"
+  #button-toggle-map.button-no-bg.icon-compass2 title="Map"
+  #button-toggle-info.button-no-bg.icon-circle-up title="Close Info"
   
   #button-toggle-nav.button-no-bg.icon-circle-right title="Close Navigation"
 
@@ -32,22 +32,11 @@
 
   .nano-content
     
-    -if logged_in? 
-      //=link_to current_user.name, current_user
-      =current_user.name
-      =link_to "  Log out", logout_path, method: "delete"
-      
-      
-    //-else
-      =link_to "Log in", login_path
-      
-    p
-    
     .info-title Sports  
-    ul.seasons = render partial: "layouts/season", collection: @spot.seasons.order('sport_id')
+    ul.info-partial = render partial: "layouts/season", collection: @spot.seasons.order('sport_id')
     
     .info-title Schools
-    ul.schools = render partial: "layouts/school_short", collection: @spot.schools
+    ul.info-partial = render partial: "layouts/school_short", collection: @spot.schools
     
   
     -if logged_in? 
@@ -55,6 +44,12 @@
       '  | 
       = link_to 'Destroy', country_spot_path, method: :delete, data: { confirm: 'Are you sure?' }
     
+    p
+    
+    -if logged_in? 
+      //=link_to current_user.name, current_user
+      =current_user.name
+      =link_to "  Log out", logout_path, method: "delete"
     
     br
     br
@@ -70,6 +65,16 @@
   
   #spot-map-canvas
   
+
+// can add &signed_in=true to gmaps init string for stylish controls
+= javascript_include_tag 'navi'
+= javascript_include_tag src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV0NXyd7BVaG6CuyzITjfsn2IIFsjedOk" 
+= javascript_include_tag src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1","packages":["corechart"]}]}'
+//= javascript_include_tag src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1.1","packages":["bar"]}]}'
+= javascript_include_tag "fotorama"
+= javascript_include_tag "gcharts"
+= javascript_include_tag "gmap"
+
 
 	  
 

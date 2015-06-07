@@ -15,5 +15,3 @@
 #= require jquery_ujs
 #= require classie
 #= require jquery.nanoscroller
-#= require_tree .
-

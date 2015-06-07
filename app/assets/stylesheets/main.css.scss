@@ -146,12 +146,24 @@ a:active {
   background: inherit;
 }
 
-ul.navbar {
-  padding-left: 0;
-  display: inline;
-  li {
+ul {
+  padding: 0;
+  color: #dddddd;
+  
+  &.info-partial {
+  	list-style: none;
+  	padding: 0 0 0 5px;
+  	font-size: 110%;
+	}
+	
+	&.navbar {
     display: inline;
   }
+  
+  li {
+    padding: 0 0 4px 0;
+  }
+
 }
 
 .debug_dump {

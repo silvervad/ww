@@ -1,13 +1,13 @@
 //countries # index
 //=====================
 
-ul
-- @countries.each do |country|
-  li = link_to country.name, country
+h2 World
+p
+ul.info-partial = render partial: "layouts/country_short", collection: Country.all.order('name')
   
 br
 
-section
+//section
   nav 
     a#but.navicon-button.x
       .navicon

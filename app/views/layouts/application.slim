@@ -17,16 +17,6 @@ html
       == yield
       
       = render 'layouts/footer'
-    
-    // can add &signed_in=true to gmaps init string for stylish controls
-    = javascript_include_tag src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV0NXyd7BVaG6CuyzITjfsn2IIFsjedOk" 
-    = javascript_include_tag src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1","packages":["corechart"]}]}'
-    //= javascript_include_tag src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1.1","packages":["bar"]}]}'
-                                                                  
-    = include_gon
-    = javascript_include_tag 'application'
-  
-    //= debug(params) if Rails.env.development?
 
 
 
