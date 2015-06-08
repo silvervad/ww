@@ -53,6 +53,13 @@ class CountryLayoutTest < ActionDispatch::IntegrationTest
     assert_select "div#button-toggle-nav", title: "Close Navigation"
   end
   
+  # Country page should have map and infobar divs
+  test "should have photos and map divs" do
+    get country_path ( @country )
+    assert_select "div#country-map-canvas"
+    assert_select "div#info-bar"
+  end
+  
   # Countries index should contain list of countries
   test "index should contain list of countries" do
     country2 = countries(:tanzania)

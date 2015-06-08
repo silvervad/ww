@@ -58,4 +58,12 @@ class SpotLayoutTest < ActionDispatch::IntegrationTest
     assert_select "div#button-toggle-nav", title: "Close Navigation"
   end
   
+  # Spot page should have photos and map divs, and infobar
+  test "should have photos and map divs" do
+    get country_spot_path(@country, @spot)
+    assert_select "div#spot-map-canvas"
+    assert_select "div#rama-canvas"
+    assert_select "div#info-bar"
+  end
+  
 end

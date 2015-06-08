@@ -44,7 +44,25 @@ function gmap_init() {
     
     countryMapOptions = {
       styles: countryMapStyles,
-      mapTypeId: google.maps.MapTypeId.HYBRID
+      mapTypeId: google.maps.MapTypeId.HYBRID,
+      panControl: false,
+      scaleControl: true,
+      rotateControl: true,
+      mapTypeControl: true,
+      mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+          position: google.maps.ControlPosition.BOTTOM_LEFT
+      },
+      zoomControl: true,
+      zoomControlOptions: {
+          style: google.maps.ZoomControlStyle.LARGE,
+          position: google.maps.ControlPosition.LEFT_BOTTOM
+      },
+  
+      //streetViewControl: true,
+      streetViewControlOptions: {
+          position: google.maps.ControlPosition.LEFT_BOTTOM
+      },
     },
     
     spotMapOptions = {
@@ -65,7 +83,7 @@ function gmap_init() {
           position: google.maps.ControlPosition.LEFT_BOTTOM
       },
   
-      streetViewControl: true,
+      //streetViewControl: true,
       streetViewControlOptions: {
           position: google.maps.ControlPosition.LEFT_BOTTOM
       },
@@ -230,12 +248,17 @@ function gmap_init() {
     
   }
   
+  /// Init and bindings
+  
   scaleToFit();
   
   // if it's country page
 	if (button_center_map) {
 		button_center_map.onclick = scaleToFit
 	}
+	
+// 	window.addEventListener('orientationchange', scaleToFit)
+// 	window.addEventListener('resize', scaleToFit)
 
 }
 
