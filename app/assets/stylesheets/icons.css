@@ -55,6 +55,10 @@
 	content: "\e99d";
 }
 
+.icon-target:before {
+	content: "\e9b3";
+}
+
 .icon-sphere:before {
 	content: "\e9c9";
 }

@@ -68,7 +68,7 @@ function navi() {
 	function closeInfo() {
 			classie.remove(nav_bar, 'info-opened');
 			classie.add(nav_bar, 'info-closed');
-			button_toggle_info.title = "Close Info";
+			button_toggle_info.title = "Open Info";
 		  classie.remove (button_toggle_info, "icon-circle-up");
 			classie.add (button_toggle_info, "icon-circle-down");
 			console.log('closeInfo');
@@ -77,7 +77,7 @@ function navi() {
 	function openInfo() {
 			classie.remove(nav_bar, 'info-closed');
 			classie.add(nav_bar, 'info-opened');
-		  button_toggle_info.title = "Open Info";
+		  button_toggle_info.title = "Close Info";
 		  classie.remove (button_toggle_info, "icon-circle-down");
 			classie.add (button_toggle_info, "icon-circle-up");
 			console.log('openInfo');
@@ -197,9 +197,13 @@ function navi() {
 	$(window).bind("resize", scaleInfo);
 	$(window).bind("orientationchange", scaleInfo);
 	
-	button_toggle_map.onclick = toggleMap;
 	button_toggle_nav.onclick = toggleNav;
 	button_toggle_info.onclick = toggleInfo;
+	
+	// if it's spot page
+	if (button_toggle_map) {
+		button_toggle_map.onclick = toggleMap
+	}
 	
 	
 	nav_bar.addEventListener(transitionEnd, scaleInfo, false);

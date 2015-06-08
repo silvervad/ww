@@ -240,6 +240,12 @@ ul {
  * position: relative
  * float: right */
 
+#button-center-map {
+  position: relative;
+  z-index: 10;
+  float: right;
+}
+
 #button-toggle-map {
   position: relative;
   z-index: 10;

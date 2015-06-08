@@ -1,98 +1,99 @@
 function gmap_init() {
   var 
-  countryMapStyles = [
-    {
-      featureType: "all",
-      elementType: "labels",
-      stylers: [
-        { visibility: "off" }
-      ]
-    },
-    {
-      featureType: "administrative.country",
-      elementType: "labels",
-      stylers: [
-        { visibility: "on" }
-      ]
-    },
-    {
-      featureType: "road",
-      elementType: "geometry",
-      stylers: [
-        { visibility: "off" }
-      ]
-    }
-  ],
-  
-  spotMapStyles = [
-    {
-      featureType: "all",
-      elementType: "labels",
-      stylers: [
-        { visibility: "on" }
-      ]
-    },
-    {
-      featureType: "road",
-      elementType: "geometry",
-      stylers: [
-        { visibility: "on" }
-      ]
-    }
-  ],
-  
-  countryMapOptions = {
-    styles: countryMapStyles,
-    mapTypeId: google.maps.MapTypeId.HYBRID
-  },
-  
-  spotMapOptions = {
-    zoom: 1,
-    styles: spotMapStyles,
-    mapTypeId: google.maps.MapTypeId.HYBRID,
-    panControl: false,
-    scaleControl: true,
-    rotateControl: true,
-    mapTypeControl: true,
-    mapTypeControlOptions: {
-        style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-        position: google.maps.ControlPosition.BOTTOM_LEFT
-    },
-    zoomControl: true,
-    zoomControlOptions: {
-        style: google.maps.ZoomControlStyle.LARGE,
-        position: google.maps.ControlPosition.LEFT_BOTTOM
-    },
-
-    streetViewControl: true,
-    streetViewControlOptions: {
-        position: google.maps.ControlPosition.LEFT_BOTTOM
+    button_center_map = document.getElementById('button-center-map'),
+    countryMapStyles = [
+      {
+        featureType: "all",
+        elementType: "labels",
+        stylers: [
+          { visibility: "off" }
+        ]
+      },
+      {
+        featureType: "administrative.country",
+        elementType: "labels",
+        stylers: [
+          { visibility: "on" }
+        ]
+      },
+      {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [
+          { visibility: "off" }
+        ]
+      }
+    ],
+    
+    spotMapStyles = [
+      {
+        featureType: "all",
+        elementType: "labels",
+        stylers: [
+          { visibility: "on" }
+        ]
+      },
+      {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [
+          { visibility: "on" }
+        ]
+      }
+    ],
+    
+    countryMapOptions = {
+      styles: countryMapStyles,
+      mapTypeId: google.maps.MapTypeId.HYBRID
     },
     
-  },
+    spotMapOptions = {
+      zoom: 1,
+      styles: spotMapStyles,
+      mapTypeId: google.maps.MapTypeId.HYBRID,
+      panControl: false,
+      scaleControl: true,
+      rotateControl: true,
+      mapTypeControl: true,
+      mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+          position: google.maps.ControlPosition.BOTTOM_LEFT
+      },
+      zoomControl: true,
+      zoomControlOptions: {
+          style: google.maps.ZoomControlStyle.LARGE,
+          position: google.maps.ControlPosition.LEFT_BOTTOM
+      },
   
-  markers = gon.markers,
-  
-  iconNormal = {
-        path: google.maps.SymbolPath.CIRCLE,
-        scale: 6,
-        strokeColor: '#003333',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: '#00FF99',
-        fillOpacity: 1
-  },
-  
-   iconHover = {
-        path: google.maps.SymbolPath.CIRCLE,
-        scale: 6,
-        strokeColor: '#003333',
-        strokeOpacity: 0.8,
-        strokeWeight: 3,
-        fillColor: '#00FF99',
-        fillOpacity: 1
-  },
-  mode = "none";
+      streetViewControl: true,
+      streetViewControlOptions: {
+          position: google.maps.ControlPosition.LEFT_BOTTOM
+      },
+      
+    },
+    
+    markers = gon.markers,
+    
+    iconNormal = {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 6,
+          strokeColor: '#003333',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#00FF99',
+          fillOpacity: 1
+    },
+    
+     iconHover = {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 6,
+          strokeColor: '#003333',
+          strokeOpacity: 0.8,
+          strokeWeight: 3,
+          fillColor: '#00FF99',
+          fillOpacity: 1
+    },
+    mode = "none";
   
 //Placing map in the div
 
@@ -200,29 +201,41 @@ function gmap_init() {
 
 // Setting bounds (center and zoom)
 
-  if (i > 1) {
-    map.fitBounds(myBounds);
-  }
-  else { 
-    if (mode == "country" || mode =="new") {
-      // 'country' and 'new' modes
-      var geocoder = new google.maps.Geocoder();
-      geocoder.geocode( { 'address': gon.country}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          map.setCenter(results[0].geometry.location);
-          map.fitBounds(results[0].geometry.viewport);
-          if (mode =="new") 
-            marker.setPosition(results[0].geometry.location);
-        }
-      });
+  
+  
+  function scaleToFit() {
+    if (i > 1) {
+      map.fitBounds(myBounds);
     }
-    else {
-      // 'spot' and 'edit' modes
-      map.setCenter(marker.getPosition());
-      map.setZoom (15);
+    else { 
+      if (mode == "country" || mode =="new") {
+        // 'country' and 'new' modes
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode( { 'address': gon.country}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            map.setCenter(results[0].geometry.location);
+            map.fitBounds(results[0].geometry.viewport);
+            if (mode =="new") 
+              marker.setPosition(results[0].geometry.location);
+          }
+        });
+      }
+      else {
+        // 'spot' and 'edit' modes
+        map.setCenter(marker.getPosition());
+        map.setZoom (15);
+      }
+  
     }
-
+    
   }
+  
+  scaleToFit();
+  
+  // if it's country page
+	if (button_center_map) {
+		button_center_map.onclick = scaleToFit
+	}
 
 }
 

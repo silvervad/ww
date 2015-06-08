@@ -39,4 +39,13 @@ class SpotLayoutTest < ActionDispatch::IntegrationTest
     assert_select "title", /#{@country.name} | #{@spot.name}/
   end
   
+  # Should display Sports and Schools partials
+  test "should display sports partial" do
+    get country_spot_path(@country, @spot)
+    assert_select "ul.info-partial", count: 2
+    assert_select "div.info-title", text: "Sports"
+    assert_select "div.info-title", text: "Schools"
+  end
+  
+  
 end
