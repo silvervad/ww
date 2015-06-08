@@ -43,6 +43,16 @@ class CountryLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", country_spot_path(@country, spot3)
   end
   
+  # Country page should show proper navigation
+  test "should show proper navigation" do
+    get country_path ( @country )
+    assert_select "div#button-up", title: "Up"
+    assert_select "div#button-home", title: "Home"
+    assert_select "div#button-center-map", title: "Center"
+    assert_select "div#button-toggle-info", title: "Close Info"
+    assert_select "div#button-toggle-nav", title: "Close Navigation"
+  end
+  
   # Countries index should contain list of countries
   test "index should contain list of countries" do
     country2 = countries(:tanzania)
@@ -52,5 +62,7 @@ class CountryLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", country_path(country2)
     assert_select "a[href=?]", country_path(country3)
   end
+  
+
   
 end

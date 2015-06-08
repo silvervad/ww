@@ -10,18 +10,18 @@
 
 #nav-bar.nav-bar.no-select
   = link_to root_path
-    #button-home.button-no-bg.icon-home title="Home"
+    #button-home.button-no-bg.navi-button.icon-home title="Home"
     
   //#button-toggle-menu.navicon-button.x.menu-open title="Close Menu"
     .navicon
 
   = link_to @country
-    #button-country.button-no-bg.icon-undo2 title="Up"
+    #button-up.button-no-bg.navi-button.icon-undo2 title="Up"
   
-  #button-toggle-map.button-no-bg.icon-compass2 title="Map"
-  #button-toggle-info.button-no-bg.icon-circle-up title="Close Info"
+  #button-toggle-map.button-no-bg.navi-button.icon-compass2 title="Map"
+  #button-toggle-info.button-no-bg.navi-button.icon-circle-up title="Close Info"
   
-  #button-toggle-nav.button-no-bg.icon-circle-right title="Close Navigation"
+  #button-toggle-nav.button-no-bg.navi-button.icon-circle-right title="Close Navigation"
 
   #nav-text.no-select
     =@spot.name

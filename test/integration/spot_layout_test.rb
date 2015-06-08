@@ -48,4 +48,14 @@ class SpotLayoutTest < ActionDispatch::IntegrationTest
   end
   
   
+  # Spot page should show proper navigation
+  test "should show proper navigation" do
+    get country_spot_path(@country, @spot)
+    assert_select "div#button-up", title: "Up"
+    assert_select "div#button-home", title: "Home"
+    assert_select "div#button-toggle-map", title: "Photos"
+    assert_select "div#button-toggle-info", title: "Close Info"
+    assert_select "div#button-toggle-nav", title: "Close Navigation"
+  end
+  
 end
