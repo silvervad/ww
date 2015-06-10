@@ -4,8 +4,15 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+season1: 
+  spot: somabay
+  sport: surfing
+  months: "111111111111"
+  
 # column: value
 #
-two: {}
+season2:
+  spot: somabay
+  sport: windsurfing
+  months: "222222222222"
 #  column: value
