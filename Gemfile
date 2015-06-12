@@ -20,7 +20,7 @@ gem 'pg', '0.17.1'
 gem 'will_paginate', '~> 3.0.7'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'carrierwave'
-gem 'rmagick'
+gem 'rmagick', '2.14.0'
 gem 'compass'
 gem 'compass-rails'
 gem "slim-rails"
@@ -60,7 +60,7 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   #gem 'childprocess', '0.3.6'
- end
+end
 
 group :test do
   #gem 'selenium-webdriver', '~> 2.42.0'

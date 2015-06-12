@@ -211,7 +211,7 @@ DEPENDENCIES
   pg (= 0.17.1)
   rails (= 4.1.4)
   rails_12factor (~> 0.0.2)
-  rmagick
+  rmagick (= 2.14.0)
   sass-rails
   sass-rails-source-maps
   sdoc (~> 0.4.0)
