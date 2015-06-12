@@ -22,7 +22,7 @@
 /tmp
 
 # Ignore uploaded images
-/public/uploads/photo/image
+/public/uploads/photo
 
 # Ignore other unneeded files.
 database.yml
