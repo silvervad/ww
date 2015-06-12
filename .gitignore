@@ -11,6 +11,7 @@
 /db/*.sqlite3
 /db/*.sqlite3.bak # db sample
 /db/*.sqlite3-journal
+/db/backup/*
 
 # Public assets 
 /public/assets/application-*
